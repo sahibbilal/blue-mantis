@@ -1,0 +1,41 @@
+@import "../../../css/base-includes";
+
+.block-archive-news-grid {
+	padding-top: responsive-values(48, 72);
+	background-color: paint(neutral-98);
+
+	.eight29-posts {
+		grid-template-columns: 1fr;
+
+		@include media-breakpoint-up(sm) {
+			@include grid;
+		}
+	}
+
+	.eight29-post {
+		@include media-breakpoint-up(sm) {
+			grid-column: 3 / span 10;
+		}
+	}
+
+	.eight29-filter-group {
+		max-height: calc(100vh - rem(190));
+
+		@include media-breakpoint-up(lg) {
+			margin-bottom: 0 !important;
+		}
+
+		@include media-breakpoint-down(sm) {
+			overflow: auto;
+		}
+	}
+
+	&__year {
+		margin-top: 0;
+		margin-bottom: calc(#{rem(48)} - #{$grid-gap});
+
+		@include media-breakpoint-up(sm) {
+			grid-column: 1 / span 2;
+		}
+	}
+}

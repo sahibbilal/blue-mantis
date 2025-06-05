@@ -1,0 +1,249 @@
+{
+    "Core-Paragraph-Mobile": [
+        "Core-Paragraph-Lead-Mobile",
+        "Core-Paragraph-Body-Mobile"
+    ],
+    "Core-Paragraph-Desktop": [
+        "Core-Paragraph-Lead-Desktop",
+        "Core-Paragraph-Body-Desktop"
+    ],
+    "Blog-Related-Desktop": [],
+    "Blog-Related-Mobile": [],
+    "Hero-Contact-Desktop": [],
+    "Hero-Contact-Mobile": [],
+    "Content-Table-Desktop": [
+        "Content-Table-Flip-Desktop",
+        "Content-Table-Scroll-Desktop",
+        "Content-Table-Stack-Desktop"
+    ],
+    "Hero-404-Desktop": [],
+    "Hero-404-Mobile": [],
+    "Testimonial-Box-Desktop": [
+        "Testimonial-Box-Quotation-Desktop",
+        "Testimonial-Box-Logo-Desktop"
+    ],
+    "Testimonial-Cards-Mobile": [
+        "Testimonial-Cards-1col-Mobile"
+    ],
+    "Testimonial-Cards-Desktop": [
+        "Testimonial-Cards-2col-Desktop",
+        "Testimonial-Cards-3col-Desktop"
+    ],
+    "Testimonial-Image-Mobile": [
+        "Testimonial-Image-Single-Mobile",
+        "Testimonial-Image-Slider-Mobile",
+        "Testimonial-Image-Slider+Button-Mobile"
+    ],
+    "Testimonial-Image-Desktop": [
+        "Testimonial-Image-Single-Desktop",
+        "Testimonial-Image-Slider-Desktop",
+        "Testimonial-Image-Slider+Button-Desktop"
+    ],
+    "Icon-Image-Mobile": [
+        "Icon-Image-A-Mobile",
+        "Icon-Image-B-Mobile"
+    ],
+    "Icon-Image-Desktop": [
+        "Icon-Image-A-Desktop",
+        "Icon-Image-B-Desktop"
+    ],
+    "Icon-Side-Heading-Desktop": [],
+    "Icon-Side-Heading-Mobile": [],
+    "Icon-Standard-Mobile": [
+        "Icon-Standard-1col-Mobile",
+        "Icon-Standard-D-Mobile"
+    ],
+    "Icon-Standard-Desktop": [
+        "Icon-Standard-2col-Desktop",
+        "Icon-Standard-3col-Desktop",
+        "Icon-Standard-4col-Desktop"
+    ],
+    "CTA-Donate-Desktop": [],
+    "CTA-Donate-Mobile": [],
+    "CTA-Strip-Mobile": [
+        "CTA-Strip-A-Mobile",
+        "CTA-Strip-Full-Width-Mobile"
+    ],
+    "CTA-Strip-Desktop": [
+        "CTA-Strip-Grid-Desktop",
+        "CTA-Strip-Full-Width-Desktop"
+    ],
+    "CTA-Grid-Mobile": [
+        "CTA-Grid-AB-Mobile"
+    ],
+    "CTA-Grid-Desktop": [
+        "CTA-Grid-A-Desktop",
+        "CTA-Grid-B-Desktop"
+    ],
+    "Card-Text-Links-Mobile": [
+        "Card-Text-Links-2col-Mobile",
+        "Card-Text-Links-3col-Mobile",
+        "Card-Text-Links-4col-Mobile"
+    ],
+    "Card-Text-Links-Desktop": [
+        "Card-Text-Links-2col-Desktop",
+        "Card-Text-Links-3col-Desktop",
+        "Card-Text-Links-4col-Desktop"
+    ],
+    "Card-Image-Links-Mobile": [
+        "Card-Image-Links-2col-Mobile",
+        "Card-Image-Links-3col-Mobile",
+        "Card-Image-Links-4col-Mobile"
+    ],
+    "Card-Image-Links-Desktop": [
+        "Card-Image-Links-2col-Desktop",
+        "Card-Image-Links-3col-Desktop",
+        "Card-Image-Links-4col-Desktop"
+    ],
+    "Card-Stacked-Mobile": [
+        "Card-Stacked-ABC-Mobile"
+    ],
+    "Card-Stacked-Desktop": [
+        "Card-Stacked-2col-Desktop",
+        "Card-Stacked-3col-Desktop",
+        "Card-Stacked-4col-Desktop"
+    ],
+    "Card-Standard-Desktop": [],
+    "Card-Standard-Mobile": [],
+    "Stat-Image-Desktop": [],
+    "Stat-Image-Mobile": [],
+    "Stat-Supporting-Desktop": [],
+    "Stat-Supporting-Mobile": [],
+    "Stat-Simple-Desktop": [],
+    "Stat-Simple-Mobile": [],
+    "Tab-Side-Image-Desktop": [],
+    "Tab-Side-Image-Mobile": [],
+    "Tab-Standard-Desktop": [],
+    "Text-Side-Heading-Desktop": [],
+    "Text-Side-Heading-Mobile": [],
+    "Text-Columns-Desktop": [
+        "Text-Columns-2col-Desktop",
+        "Text-Columns-3col-Desktop",
+        "Text-Columns-4col-Desktop"
+    ],
+    "Stat-Strip-Desktop": [],
+    "Stat-Strip-Mobile": [],
+    "Text-Rows-Desktop": [],
+    "Text-Rows-Mobile": [],
+    "Text-Lead-Desktop": [],
+    "Text-Lead-Mobile": [],
+    "Text-Centered-Desktop": [],
+    "Text-Centered-Mobile": [],
+    "Hero-Text-Mobile": [
+        "Hero-Text-A-Mobile",
+        "Hero-Text-B-Mobile"
+    ],
+    "Hero-Text-Desktop": [
+        "Hero-Text-A-Desktop",
+        "Hero-Text-B-Desktop"
+    ],
+    "Accordion-Centered-Desktop": [],
+    "Accordion-Centered-Mobile": [],
+    "Logo-Standard-Desktop": [],
+    "Logo-Standard-Mobile": [],
+    "Logo-Strip-Desktop": [],
+    "Logo-Strip-Mobile": [],
+    "CTA-Form-Mobile": [
+        "CTA-Form-A-Mobile",
+        "CTA-Form-B-Mobile",
+        "CTA-Form-C-Mobile"
+    ],
+    "CTA-Form-Desktop": [
+        "CTA-Form-Sign-Up-Desktop-Default",
+        "CTA-Form-B-Desktop",
+        "CTA-Form-C-Desktop"
+    ],
+    "Hero-Standard-Desktop": [],
+    "Hero-Standard-Mobile": [],
+    "Hero-Centered-Desktop": [],
+    "Hero-Centered-Mobile": [],
+    "Hero-Display-Desktop": [],
+    "Hero-Display-Mobile": [],
+    "CTA-Standard-Desktop": [],
+    "CTA-Standard-Mobile": [],
+    "Content-Side-Image-Mobile": [
+        "Content-Side-Image-RL-Mobile",
+        "Content-Side-Image-Pattern-Mobile"
+    ],
+    "Content-Side-Image-Desktop": [
+        "Content-Side-Image-R-Desktop",
+        "Content-Side-Image-L-Desktop",
+        "Content-Side-Image-Pattern-Desktop"
+    ],
+    "Testimonial-Standard-Mobile": [
+        "Testimonial-Standard-Quotation-Mobile",
+        "Testimonial-Standard-Logo-Mobile"
+    ],
+    "Testimonial-Standard-Desktop": [
+        "Testimonial-Standard-Quotation-Desktop",
+        "Testimonial-Standard-Logo-Desktop"
+    ],
+    "Media-Standard-Mobile": [
+        "Media-Standard-Photo-2:1-Mobile",
+        "Media-Standard-Photo-16:9-Mobile",
+        "Media-Standard-Photo-3:2-Mobile",
+        "Media-Standard-Photo-3:2-2col-Mobile",
+        "Media-Standard-Photo-4:3-2col-Mobile",
+        "Media-Standard-Photo-1:1-2col-Mobile",
+        "Media-Standard-Video-16:9-Mobile"
+    ],
+    "Media-Standard-Desktop": [
+        "Media-Standard-Photo-2:1-Desktop",
+        "Media-Standard-Photo-16:9-Desktop",
+        "Media-Standard-Photo-3:2-Desktop",
+        "Media-Standard-Photo-3:2-2col-Desktop",
+        "Media-Standard-Photo-4:3-2col-Desktop",
+        "Media-Standard-Photo-1:1-2col-Desktop",
+        "Media-Standard-Video-16:9-Desktop"
+    ],
+    "Accordion-Side-Image-Desktop": [],
+    "Accordion-Side-Image-Mobile": [],
+    "Accordion-Side-Heading-Desktop": [],
+    "Accordion-Side-Heading-Mobile": [],
+    "Core-Button-Mobile": [
+        "Core-Button-Light-Primary-Large-Mobile",
+        "Core-Button-Light-Secondary-Large-Mobile",
+        "Core-Button-Light-Tertiary-Large-Mobile",
+        "Core-Button-Dark-Primary-Large-Mobile",
+        "Core-Button-Dark-Secondary-Large-Mobile",
+        "Core-Button-Dark-Tertiary-Large-Mobile"
+    ],
+    "Core-Button-Desktop": [
+        "Core-Button-Light-Primary-Large-Desktop",
+        "Core-Button-Light-Secondary-Large-Desktop",
+        "Core-Button-Light-Tertiary-Large-Desktop",
+        "Core-Button-Dark-Primary-Large-Desktop",
+        "Core-Button-Dark-Secondary-Large-Desktop",
+        "Core-Button-Dark-Tertiary-Large-Desktop"
+    ],
+    "Core-Quote-Desktop": [],
+    "Core-Quote-Mobile": [],
+    "Core-List-Mobile": [
+        "Core-List-Bulleted-Mobile",
+        "Core-List-Numbered-Mobile",
+        "Core-List-Checked-Mobile"
+    ],
+    "Core-List-Desktop": [
+        "Core-List-Bulleted-Desktop",
+        "Core-List-Numbered-Desktop",
+        "Core-List-Checked-Desktop"
+    ],
+    "Core-Heading-Mobile": [
+        "Core-Heading-Display-Mobile",
+        "Core-Heading-T1-Mobile",
+        "Core-Heading-T2-Mobile",
+        "Core-Heading-T3-Mobile",
+        "Core-Heading-T4-Mobile",
+        "Core-Heading-T5-Mobile",
+        "Core-Heading-T6-Mobile"
+    ],
+    "Core-Heading-Desktop": [
+        "Core-Heading-Display-Desktop",
+        "Core-Heading-T1-Desktop",
+        "Core-Heading-T2-Desktop",
+        "Core-Heading-T3-Desktop",
+        "Core-Heading-T4-Desktop",
+        "Core-Heading-T5-Desktop",
+        "Core-Heading-T6-Desktop"
+    ]
+}

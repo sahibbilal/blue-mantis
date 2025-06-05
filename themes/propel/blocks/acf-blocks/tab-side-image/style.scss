@@ -1,0 +1,45 @@
+@import "../../../css/base-includes";
+
+.block-tab-side-image {
+	overflow: hidden;
+
+	&__row {
+		position: relative;
+		z-index: 1;
+
+		@include media-breakpoint-up(md) {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+	}
+
+	&__spacer {
+		z-index: -2;
+		width: 100%;
+		max-width: rem(752);
+
+		@include media-breakpoint-down(sm) {
+			width: calc(100% + calc(var(--gutterWidth, #{rem(20)}) * 2));
+			margin: rem(-66) calc(var(--gutterWidth, #{rem(20)}) * -1) 0;
+		}
+	}
+
+	&__spacer-inner {
+		padding-bottom: 75.13297872%;
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+
+		@include media-breakpoint-up(md) {
+			display: block;
+			flex: 0 0 calc(33.33333333% - #{$grid-gap} / 2);
+			max-width: calc(33.33333333% - #{$grid-gap} / 2);
+			margin-top: var(--marginTop, auto);
+			margin-bottom: auto;
+		}
+	}
+}

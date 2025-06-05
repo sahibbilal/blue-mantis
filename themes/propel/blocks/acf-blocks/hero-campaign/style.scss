@@ -1,0 +1,118 @@
+@import "../../../css/base-includes";
+
+.block-hero-campaign {
+	position: relative;
+	z-index: 1;
+	padding: 0;
+	overflow: hidden;
+
+	&::after {
+		position: absolute;
+		top: 0;
+		left: 0;
+		content: "";
+		z-index: -1;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%), linear-gradient(180deg, rgba(0, 43, 94, 0.2) 0%, rgba(7, 109, 242, 0.2) 100%), linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
+	}
+
+	&__content {
+		@include media-breakpoint-up(md) {
+			@include grid;
+
+			position: relative;
+			z-index: 1;
+			align-items: center;
+		}
+
+		&::after {
+			@include media-breakpoint-up(md) {
+				grid-area: 1 / 7 / 2 / span 6;
+				content: "";
+				z-index: -1;
+				display: block;
+				width: 100vw;
+				height: 100%;
+				background-color: paint(neutral-98);
+			}
+
+			@include media-breakpoint-up(lg) {
+				grid-column: 8 / span 5;
+			}
+
+			@include media-breakpoint-up(xxl) {
+				grid-column: 9 / span 4;
+				margin-left: calc(#{$grid-gap} * -1);
+			}
+		}
+
+		> .block-content {
+			&.bg-dark {
+				padding: rem(80 0 96);
+				background-color: transparent;
+
+				@include media-breakpoint-up(md) {
+					grid-area: 1/ 1 / 2 / span 6;
+				}
+
+				@include media-breakpoint-up(xl) {
+					grid-column: 1 / span 7;
+				}
+			}
+
+			&:not(.bg-dark) {
+				margin: 0 calc(var(--gutterWidth, #{rem(20)}) * -1);
+				padding: responsive-values(64, 102) rem(20) responsive-values(80, 166);
+				background-color: paint(neutral-98);
+
+				@include media-breakpoint-up(md) {
+					grid-area: 1 / 7 / 2 / span 6;
+					justify-self: center;
+					width: 100%;
+					margin: 0;
+					padding-right: 0;
+					padding-left: $grid-gap;
+				}
+
+				@include media-breakpoint-up(lg) {
+					grid-column: 8 / span 5;
+					max-width: rem(320);
+					padding-left: 0;
+				}
+
+				@include media-breakpoint-up(xxl) {
+					grid-column: 9 / span 4;
+					justify-self: flex-end;
+				}
+			}
+		}
+	}
+
+	.hs-button {
+		width: 100%;
+	}
+
+	.wp-block-html {
+		margin: rem(24) 0;
+		padding: 0;
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__background-image {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}

@@ -1,0 +1,98 @@
+@import "../../../css/base-includes";
+
+.wp-block-buttons {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	row-gap: rem(16);
+	align-items: center;
+	margin-top: responsive-values(28, 36);
+	margin-bottom: responsive-values(36, 48);
+	column-gap: rem(16);
+
+	&--tertiary-wrapper {
+		margin-top: responsive-values(24, 32);
+	}
+
+	&:first-child {
+		margin-top: 0;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	.wp-block-button {
+		&.is-style-social {
+			margin-top: responsive-values(-8, -12);
+			margin-bottom: responsive-values(8, 12);
+		}
+	}
+
+	&.is-vertical {
+		flex-direction: column;
+
+		> .wp-block-button {
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	> .wp-block-button {
+		display: inline-block;
+		margin: 0;
+	}
+
+	&.is-content-justification-left {
+		justify-content: flex-start;
+
+		&.is-vertical {
+			align-items: flex-start;
+		}
+	}
+
+	&.is-content-justification-center {
+		justify-content: center;
+
+		&.is-vertical {
+			align-items: center;
+		}
+	}
+
+	&.is-content-justification-right {
+		justify-content: flex-end;
+
+		&.is-vertical {
+			align-items: flex-end;
+		}
+	}
+
+	&.is-content-justification-space-between {
+		justify-content: space-between;
+	}
+
+	&.aligncenter {
+		text-align: center;
+	}
+
+	&:not(.is-content-justification-space-between,.is-content-justification-right,.is-content-justification-left,.is-content-justification-center) .wp-block-button.aligncenter {
+		width: 100%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	&[style*="text-decoration"] {
+		.wp-block-button,
+		.wp-block-button__link {
+			text-decoration: inherit;
+		}
+	}
+
+	&.has-custom-font-size {
+		.wp-block-button__link {
+			font-size: inherit;
+		}
+	}
+}

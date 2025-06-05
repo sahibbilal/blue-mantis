@@ -1,0 +1,103 @@
+@import "../../../css/base-includes";
+
+.block-related-posts {
+	padding: $block-spacing-with-text 0 $block-spacing;
+
+	&__top {
+		margin-bottom: responsive-values(32, 48);
+
+		@include media-breakpoint-up(md) {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.wp-block-buttons {
+			margin-top: auto;
+		}
+
+		* {
+			@include media-breakpoint-up(md) {
+				margin-top: auto;
+				margin-bottom: auto;
+			}
+		}
+	}
+
+	&__post-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: $grid-gap;
+
+		&--featured {
+			@include media-breakpoint-up(md) {
+				@include grid;
+			}
+
+			> * {
+				@include media-breakpoint-up(md) {
+					grid-column-end: span 6 !important;
+				}
+
+				@include media-breakpoint-up(lg) {
+					grid-column-end: span 5 !important;
+				}
+
+				@include media-breakpoint-up(xl) {
+					grid-column-end: span 4 !important;
+				}
+
+				&:first-child {
+					@include media-breakpoint-up(md) {
+						grid-area: 1 / 1 / span 3 / span 6 !important;
+					}
+
+					@include media-breakpoint-up(lg) {
+						grid-area: 1 / 1 / span 3 / span 7 !important;
+					}
+
+					@include media-breakpoint-up(xl) {
+						grid-area: 1 / 1 / span 3 / span 8 !important;
+					}
+
+					.post-card__image-wrapper {
+						flex-grow: 1;
+					}
+
+					.post-card__content {
+						flex-grow: 0;
+					}
+				}
+			}
+		}
+
+		@include media-breakpoint-up(lg) {
+			@include grid;
+		}
+
+		> * {
+			@include media-breakpoint-up(lg) {
+				grid-column-end: span 4;
+			}
+		}
+	}
+
+	.event-card {
+		transition-property: background-color, box-shadow;
+
+		&:focus,
+		&:hover {
+			background-color: paint(neutral-98);
+			box-shadow: 0 0 30px rgba(21, 120, 248, 0.5);
+
+			.event-card__title {
+				color: paint(blue-1);
+			}
+		}
+
+		.event-card__title {
+			transition: color $transition-standard;
+		}
+	}
+}

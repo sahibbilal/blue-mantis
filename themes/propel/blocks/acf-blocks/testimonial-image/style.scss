@@ -1,0 +1,121 @@
+@import "../../../css/base-includes";
+
+.block-testimonial-image {
+	position: relative;
+
+	&--has-heading-content {
+		.block-testimonial-image__container {
+			> *:not(.block-testimonials):not(div) {
+				display: block;
+				padding-right: rem(136);
+			}
+		}
+
+		.block-testimonial__content-col {
+			padding: 0;
+		}
+
+		.block-testimonials {
+			@include media-breakpoint-up(md) {
+				position: static !important;
+			}
+		}
+	}
+
+	&__container {
+		position: relative;
+
+		> *:not(.block-testimonials):not(div) {
+			~ .block-testimonials {
+				margin-top: rem(120);
+
+				@include media-breakpoint-up(md) {
+					margin-top: responsive-values(48, 72);
+				}
+			}
+		}
+	}
+
+	.block-testimonials {
+		position: relative;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+
+		@include media-breakpoint-up(md) {
+			@include grid();
+		}
+	}
+
+	.block-testimonial {
+		@include quote-2(false);
+
+		margin: 0 0 responsive-values(24, 36) 0;
+
+		@include media-breakpoint-up(md) {
+			@include grid();
+
+			display: grid !important;
+			align-items: center;
+		}
+
+		p {
+			@include quote-2();
+		}
+
+		&:only-of-type {
+			.block-testimonial__content-col {
+				padding: 0;
+			}
+		}
+	}
+
+	.block-testimonial__image-col {
+		@include media-breakpoint-up(md) {
+			grid-column: 1 / 6;
+		}
+	}
+
+	.block-testimonial__image-wrapper {
+		padding-bottom: 100%;
+
+		@include media-breakpoint-down(sm) {
+			margin-bottom: rem(48);
+		}
+	}
+
+	.block-testimonial__content-col {
+		@include media-breakpoint-up(md) {
+			grid-column: 6 / 13;
+			max-width: rem(624);
+			margin: auto;
+			padding: rem(72 0 188 0);
+		}
+	}
+
+	.block-testimonial__quote-icon {
+		margin-bottom: responsive-values(16, 24);
+		font-size: rem(48);
+
+		&::before {
+			font-size: inherit;
+		}
+	}
+
+	.block-testimonial__logo {
+		height: auto;
+		margin: 0 auto responsive-values(16, 24) 0;
+	}
+
+	.slick-list {
+		@include media-breakpoint-down(sm) {
+			flex: 0 0 100%;
+		}
+
+		@include media-breakpoint-up(md) {
+			grid-area: 1 / 1 / 2 / 13;
+			width: 100%;
+			margin: 0 auto;
+		}
+	}
+}

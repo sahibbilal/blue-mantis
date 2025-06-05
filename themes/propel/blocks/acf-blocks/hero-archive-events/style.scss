@@ -1,0 +1,176 @@
+@import "../../../css/base-includes";
+
+.block-hero-archive-events {
+	position: relative;
+	z-index: 1;
+	padding: responsive-values(154, 224) 0 responsive-values(96, 160);
+	background: linear-gradient(270deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 29.55%), #002b5e;
+	overflow: hidden;
+
+	&::after {
+		position: absolute;
+		top: 0;
+		left: 0;
+		content: "";
+		z-index: -1;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(180deg, rgba(0, 0, 0, 0) 49.96%, paint(neutral-0) 100%);
+	}
+
+	body.page-has-alt-nav #page > .content-wrapper > &:first-child {
+		margin-top: rem(-152);
+	}
+
+	&__content {
+		grid-area: 1 / 1 / span 1 / span 12;
+
+		> :last-child {
+			margin-bottom: responsive-values(32, 80);
+		}
+	}
+
+	&__background-image {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -2;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	&__slider {
+		display: contents;
+	}
+
+	&__container {
+		@include grid;
+
+		align-items: center;
+	}
+
+	&__upcoming-events-title {
+		grid-area: 3 / 1 / span 1 / span 12;
+		margin-top: auto;
+		margin-bottom: rem(24);
+
+		@include media-breakpoint-up(md) {
+			grid-column-end: span 6;
+			margin-bottom: auto;
+		}
+	}
+
+	.event-card-featured {
+		grid-area: 2 / 1 / span 1 / span 12;
+
+		&:not(:last-child) {
+			margin-bottom: responsive-values(72, 80);
+		}
+	}
+
+	.slick-list {
+		grid-area: 5 / 1 / span 1 / span 12;
+		margin: rem(48) rem(16) 0 calc(#{$grid-gap} * -0.5);
+		overflow: visible;
+		clip-path: polygon(calc(#{$grid-gap} / 2) 0%, 100vw 0%, 100vw 100%, calc(#{$grid-gap} / 2) 100%);
+
+		@include media-breakpoint-up(md) {
+			margin: rem(48) calc(#{$grid-gap} * -0.5) 0;
+		}
+	}
+
+	.slick-dots {
+		grid-area: 4 / 1 / span 1 / span 12;
+		width: rem(60);
+		margin-left: rem(32);
+		text-align: center;
+
+		@include media-breakpoint-up(md) {
+			grid-area: 3 / 7 / span 1 / span 6;
+			margin-right: rem(32);
+			margin-left: auto;
+		}
+	}
+
+	.slick-arrow {
+		grid-area: 4 / 1 / span 1 / span 12;
+		position: relative;
+		top: auto;
+		left: auto;
+		right: auto;
+		width: rem(32);
+		height: rem(32);
+		transform: none;
+
+		@include media-breakpoint-up(md) {
+			grid-area: 3 / 7 / span 1 / span 6;
+			margin-left: auto;
+		}
+
+		&::after {
+			font-size: rem(24);
+		}
+
+		&.slick-prev {
+			@include media-breakpoint-up(md) {
+				margin-right: rem(92);
+			}
+		}
+
+		&.slick-next {
+			margin-left: rem(92);
+
+			@include media-breakpoint-up(md) {
+				margin-left: auto;
+			}
+		}
+	}
+
+	.slick-track {
+		display: flex;
+		flex-direction: row;
+		align-items: stretch;
+		margin: 0;
+	}
+
+	.slick-slide {
+		display: flex !important;
+		justify-content: flex-start;
+		align-items: center;
+		float: none;
+		height: auto;
+		margin: 0 calc(#{$grid-gap} / 2);
+		opacity: 0.5;
+		transition: opacity 0.4s ease-in-out;
+
+		> div:not([class]) {
+			display: contents;
+		}
+
+		&.slick-active,
+		&.slick-clone-current {
+			opacity: 1;
+		}
+	}
+
+	.event-card {
+		display: flex !important;
+		height: 100%;
+		transition-property: background-color, box-shadow;
+
+		&:focus,
+		&:hover {
+			background-color: paint(neutral-98);
+			box-shadow: 0 0 30px rgba(21, 120, 248, 0.5);
+
+			.event-card__title {
+				color: paint(blue-1);
+			}
+		}
+
+		.event-card__title {
+			transition: color $transition-standard;
+		}
+	}
+}

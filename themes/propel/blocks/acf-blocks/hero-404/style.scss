@@ -1,0 +1,15 @@
+@import "../../../css/base-includes";
+
+.block-hero-404 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: calc(var(--vh, 1vh) * 100);
+	padding: responsive-values(192, 240) 0;
+	text-align: center;
+
+	.content-wrapper {
+		flex: 0 0 100%;
+		width: 100%;
+	}
+}

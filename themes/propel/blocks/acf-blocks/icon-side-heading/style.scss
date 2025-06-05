@@ -1,0 +1,148 @@
+@import "../../../css/base-includes";
+
+.block-icon-side-heading {
+	position: relative;
+	z-index: 1;
+	background-color: paint(neutral-98);
+
+	&::after {
+		@include media-breakpoint-up(md) {
+			position: absolute;
+			top: 0;
+			left: 0;
+			content: "";
+			z-index: -1;
+			width: calc(50% - #{$grid-gap} * 0.5);
+			height: 100%;
+			background: linear-gradient(180deg, rgba(0, 43, 94, 0.85) 0%, rgba(0, 19, 41, 0.934174) 68.35%, #000 100%);
+			pointer-events: none;
+		}
+	}
+
+	&__background-image {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -2;
+		width: 100%;
+		object-fit: cover;
+		pointer-events: none;
+
+		@include media-breakpoint-up(md) {
+			width: calc(50% - #{$grid-gap} * 0.5);
+			height: 100%;
+		}
+	}
+
+	&__container {
+		@include media-breakpoint-up(md) {
+			@include grid();
+
+			align-items: flex-start;
+		}
+	}
+
+	.block-content {
+		position: relative;
+		z-index: 1;
+		padding-top: 0;
+		padding-bottom: rem(96);
+		color: paint(white);
+		background-color: transparent;
+
+		@include media-breakpoint-up(md) {
+			grid-area: 1 / 1 / 2 / span 5;
+			position: sticky;
+			top: rem(120);
+			padding: 0;
+		}
+
+		@include media-breakpoint-up(xl) {
+			grid-area: 1 / 1 / 2 / span 4;
+		}
+
+		&::after {
+			position: absolute;
+			top: calc($block-spacing * -1);
+			left: calc(var(--gutterWidth, #{rem(20)}) * -1);
+			bottom: 0;
+			right: calc(var(--gutterWidth, #{rem(20)}) * -1);
+			content: "";
+			z-index: -1;
+			background: linear-gradient(180deg, rgba(0, 43, 94, 0.85) 0%, rgba(0, 19, 41, 0.934174) 68.35%, #000 100%);
+			pointer-events: none;
+
+			@include media-breakpoint-up(md) {
+				display: none;
+			}
+		}
+	}
+
+	.block-icon-contents {
+		position: relative;
+		z-index: 2;
+		margin-top: 0;
+		padding: rem(72) 0 rem(24);
+
+		@include media-breakpoint-up(md) {
+			grid-area: 1 / 7 / 2 / span 6;
+			margin-top: 0;
+			padding-top: 0;
+		}
+
+		@include media-breakpoint-up(lg) {
+			grid-area: 1 / 8 / 2 / span 5;
+		}
+
+		&::after {
+			position: absolute;
+			top: 0;
+			left: calc(var(--gutterWidth, #{rem(20)}) * -1);
+			bottom: 0;
+			right: calc(var(--gutterWidth, #{rem(20)}) * -1);
+			content: "";
+			z-index: -1;
+			background-color: paint(neutral-98);
+			pointer-events: none;
+
+			@include media-breakpoint-up(md) {
+				display: none;
+			}
+		}
+	}
+
+	.block-icon-contents__grid {
+		display: block;
+	}
+
+	.block-icon-content {
+		padding: 0;
+		background-color: transparent;
+
+		@include headings() {
+			&,
+			.wp-block-heading {
+				@include t3(false);
+			}
+		}
+
+		+ .block-icon-content {
+			margin-top: responsive-values(24, 64);
+			padding-top: rem(32);
+			border-top: 1px solid paint(neutral-85);
+
+			@include media-breakpoint-up(md) {
+				padding: 0;
+				border: 0;
+			}
+		}
+	}
+
+	.block-icon {
+		color: paint("blue-1");
+
+		&__icon {
+			font-size: rem(48);
+		}
+	}
+}

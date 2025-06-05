@@ -1,0 +1,87 @@
+@import "../../../css/base-includes";
+
+.block-cta-form {
+	&__container {
+		@include media-breakpoint-up(md) {
+			@include grid();
+
+			row-gap: responsive-values(20, 32);
+		}
+	}
+
+	&__content {
+		margin-bottom: rem(48);
+
+		@include media-breakpoint-up(md) {
+			grid-area: 1 / 1 / 2 / 7;
+			margin-bottom: 0;
+		}
+
+		@include media-breakpoint-up(lg) {
+			grid-area: 1 / 1 / 2 / 6;
+		}
+	}
+
+	&__form-wrapper {
+		@include media-breakpoint-down(sm) {
+			margin-top: rem(48);
+		}
+
+		@include media-breakpoint-up(md) {
+			grid-area: 1 / 7 / 2 / 13;
+		}
+	}
+
+	.gfield {
+		+ .gfield {
+			margin-top: rem(16);
+
+			&--type-consent {
+				margin: rem(24) 0;
+
+				.gfield_label {
+					display: none;
+				}
+
+				.gform-field-label {
+					@include title-3(false);
+				}
+			}
+		}
+	}
+
+	.gfield_required {
+		&::before {
+			content: "*";
+			display: inline-block;
+			color: paint(error);
+		}
+	}
+
+	.gfield_required_text {
+		display: none;
+	}
+
+	// Enhanced UI dropdown
+	.chosen-container {
+		position: relative;
+	}
+
+	.chosen-search {
+		display: none;
+	}
+
+	.chosen-results {
+		position: absolute;
+		top: 100%;
+		display: none;
+		width: 100%;
+		padding-left: rem(16);
+		background: paint(white);
+		list-style: none;
+	}
+
+	.chosen-container-active .chosen-results {
+		display: block;
+	}
+}

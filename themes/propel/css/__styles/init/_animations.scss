@@ -1,0 +1,39 @@
+
+body:not(.no-js):not(.post-type-archive-library_block):not(.has-gated-content) {
+	#page > .content-wrapper:not(.no-animations) > *:not(.acf-block),
+	#page > .content-wrapper:not(.no-animations) > .acf-block:not(.no-animations) > *,
+	.animate-in {
+		opacity: 0;
+		transition: opacity 0.8s var(--transitionDelay, 0s) ease-out;
+
+		@media print {
+			opacity: 1;
+		}
+
+		&.in-viewport {
+			opacity: 1;
+		}
+	}
+
+	#page > .content-wrapper {
+		> *:not(.acf-block):not([class*="hero"]) {
+			&:first-child {
+				opacity: 1;
+
+				~ *:not(.acf-block) {
+					opacity: 1;
+				}
+			}
+		}
+	}
+}
+
+@keyframes loader {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+}

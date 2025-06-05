@@ -1,0 +1,98 @@
+@import "../../../css/base-includes";
+
+.block-hero-contact {
+	position: relative;
+	z-index: 1;
+	padding: 0;
+	background-color: paint(neutral-8);
+	overflow: hidden;
+
+	&__container {
+		@include media-breakpoint-up(md) {
+			@include grid();
+
+			row-gap: responsive-values(20, 32);
+		}
+
+		&::after {
+			@include media-breakpoint-up(md) {
+				grid-area: 1 / 7 / 2 / span 6;
+				content: "";
+				z-index: -1;
+				display: block;
+				height: 100%;
+				margin-right: calc(var(--gutterWidth, #{rem(20)}) * -1);
+				background-color: paint(neutral-98);
+			}
+
+			@include media-breakpoint-up(xl) {
+				grid-area: 1 / 6 / 2 / span 7;
+			}
+		}
+	}
+
+	&__content {
+		position: relative;
+		padding: responsive-values(80, 128) 0 0 0;
+		background-color: transparent;
+
+		@include media-breakpoint-up(md) {
+			grid-area: 1 / 1 / 2 / span 6;
+			position: static;
+			margin-bottom: 0;
+			padding-bottom: responsive-values(80, 128);
+		}
+
+		@include media-breakpoint-up(lg) {
+			grid-area: 1 / 1 / 2 / span 5;
+		}
+
+		@include media-breakpoint-up(xl) {
+			grid-area: 1 / 1 / 2 / span 4;
+		}
+
+		&::after {
+			content: "";
+			z-index: -1;
+			display: block;
+			width: calc(100% + var(--gutterWidth, #{rem(20)}) * 2);
+			height: responsive-values(240, 320, 375, "md");
+			margin: 0 calc(var(--gutterWidth, #{rem(20)}) * -1);
+			background: url(../../images/m-logo.svg);
+			background-repeat: no-repeat;
+			background-position: top left;
+			background-size: responsive-values(750, 1488, 375, "md") auto;
+
+			@include media-breakpoint-up(md) {
+				position: absolute;
+				top: 57.41293532%;
+				left: 0;
+				bottom: auto;
+				width: 88.5714%;
+				height: 0;
+				margin: 0;
+				padding-bottom: 67.54032258%;
+				background-size: contain;
+			}
+		}
+
+		h1 + p {
+			margin-top: rem(48);
+		}
+
+		p {
+			@include body-2(false);
+		}
+	}
+
+	&__form-wrapper {
+		margin: 0 calc(var(--gutterWidth, #{rem(20)}) * -1);
+		padding: responsive-values(64, 102) rem(20) responsive-values(80, 166);
+		background-color: paint(neutral-98);
+
+		@include media-breakpoint-up(md) {
+			grid-area: 1 / 7 / 2 / span 6;
+			margin: 0;
+		}
+	}
+}

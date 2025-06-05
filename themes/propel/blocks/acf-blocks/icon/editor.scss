@@ -1,0 +1,9 @@
+@import "../../../css/base-includes";
+
+.editor-styles-wrapper {
+	.block-icon {
+		em {
+			@include subtitle-3(false);
+		}
+	}
+}

@@ -1,0 +1,136 @@
+{
+    "key": "group_5f60d7710e482",
+    "title": "Block: Slider Gallery",
+    "fields": [
+        {
+            "key": "field_5f60d7711937c",
+            "label": "Content",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5f60d77119389",
+            "label": "Gallery",
+            "name": "gallery",
+            "type": "post_object",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "gallery"
+            ],
+            "taxonomy": "",
+            "allow_null": 0,
+            "multiple": 0,
+            "return_format": "id",
+            "ui": 1
+        },
+        {
+            "key": "field_5f60d77119396",
+            "label": "Gallery Type",
+            "name": "gallery_type",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "slider-gallery": "Slider Gallery",
+                "lightbox-gallery": "Lightbox Gallery"
+            },
+            "default_value": "slider-gallery",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "ajax": 0,
+            "return_format": "value",
+            "placeholder": ""
+        },
+        {
+            "key": "field_5f60d7711939c",
+            "label": "Flexible Widths",
+            "name": "flexible_widths",
+            "type": "true_false",
+            "instructions": "If \"yes\", images will be resized down instead of being hard cropped into rectangles.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5f60d771193a2",
+            "label": "Full Width (Fluid)",
+            "name": "fluid",
+            "type": "true_false",
+            "instructions": "If \"yes\", additional images will bleed outside of the container making a carousel effect.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5f60d7711939c",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/slider-gallery"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content"
+    ],
+    "active": true,
+    "description": "",
+    "show_in_rest": false,
+    "modified": 1659530601
+}

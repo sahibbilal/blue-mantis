@@ -1,0 +1,145 @@
+@import "../../../css/base-includes";
+
+.pagination {
+	$self: ".pagination";
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: responsive-values(48, 72);
+	margin-bottom: 0;
+	padding-left: 0;
+	list-style: none;
+
+	&__list {
+		> ul {
+			@include link-1(false);
+
+			display: grid;
+			grid-auto-flow: column;
+			grid-gap: rem(16);
+			margin: 0 !important;
+			padding: 0 !important;
+			list-style: none;
+
+			> li {
+				&::before {
+					display: none !important;
+				}
+
+				&.first-item,
+				&.last-item {
+					&::before,
+					&::after {
+						position: relative !important;
+						top: auto !important;
+						left: auto !important;
+						display: inline-block !important;
+						text-align: center;
+					}
+				}
+
+				&.first-item {
+					margin-right: rem(-3) !important;
+
+					&::before {
+						display: none !important;
+					}
+
+					&::after {
+						content: "...";
+					}
+				}
+
+				&.last-item {
+					margin-left: rem(-3) !important;
+
+					&::before {
+						content: "..." !important;
+						margin: 0 rem(20) 0 rem(16);
+					}
+
+					&::after {
+						display: none !important;
+					}
+				}
+			}
+		}
+
+		li {
+			padding: 0;
+		}
+	}
+
+	&__item {
+		@include link-1(false);
+
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		width: rem(40);
+		height: rem(40);
+		margin: 0;
+		padding: 0;
+		color: paint(text);
+		border: 0;
+		border-radius: 50%;
+		background: transparent;
+		transition: background-color $transition-standard, color $transition-standard;
+
+		&--ellipses {
+			min-width: rem(32);
+			pointer-events: none;
+		}
+
+		@include alt-text-selectors() {
+			color: paint(white);
+		}
+
+		&:not(.current-page) {
+			&:hover,
+			&:focus {
+				color: paint(text, true);
+				background-color: paint(neutral-85);
+			}
+		}
+
+		&.current-page {
+			color: paint(text, true);
+			background-color: paint(button-default);
+			pointer-events: none;
+		}
+	}
+
+	&__arrow {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: rem(24);
+		height: rem(24);
+		color: paint(text);
+		font-size: 0;
+		border: 0;
+		background: none;
+	}
+
+	&__prev {
+		#{$self}__arrow {
+			margin-right: rem(8);
+
+			&::before {
+				@include icon-font( $icon-chev-left );
+			}
+		}
+	}
+
+	&__next {
+		#{$self}__arrow {
+			margin-left: rem(8);
+
+			&::before {
+				@include icon-font( $icon-chev-right );
+			}
+		}
+	}
+}

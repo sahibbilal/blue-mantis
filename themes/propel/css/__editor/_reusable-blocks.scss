@@ -1,0 +1,55 @@
+@at-root .components-button.block-editor-block-types-list__item {
+	&[class*="editor-block-list-item-block/"] {
+		position: relative;
+		padding: 1px !important;
+
+		&::before {
+			content: "Reusable Block";
+			display: block;
+			padding: rem(8);
+			color: #1e1e1e;
+			font-weight: 600;
+			font-size: rem(12);
+			border-bottom: 1px solid #e0e0e0;
+			background-color: #f0f0f0;
+		}
+
+		&::after {
+			position: absolute;
+			top: 1px;
+			left: 1px;
+			bottom: 1px;
+			right: 1px;
+			content: "";
+			border: 1px solid #e0e0e0;
+			pointer-events: none;
+		}
+
+		.block-editor-block-types-list__item-title {
+			padding-right: rem(8);
+			padding-left: rem(8);
+		}
+	}
+}
+
+@at-root .components-autocomplete__result {
+	&.components-button {
+		&[id*="core/block"] {
+			&::after {
+				content: "Reusable Block";
+				display: block;
+				max-width: rem(58);
+				margin-left: rem(6);
+				padding: rem(4);
+				color: #1e1e1e;
+				font-weight: 600;
+				font-size: rem(10);
+				line-height: 1;
+				white-space: normal;
+				text-align: center;
+				border: 1px solid #e0e0e0;
+				background-color: #f0f0f0;
+			}
+		}
+	}
+}

@@ -1,0 +1,39 @@
+@import "../../../css/base-includes";
+
+.block-gated-post-form {
+	&__content {
+		@include media-breakpoint-up(xl) {
+			@include grid();
+		}
+
+		> .block-content {
+			@include media-breakpoint-down(sm) {
+				margin-top: rem(96);
+			}
+
+			&:first-child {
+				margin-top: 0;
+			}
+
+			&:nth-child(2n + 1) {
+				@include media-breakpoint-up(xl) {
+					grid-column: 1 / span 6;
+				}
+			}
+
+			&:nth-child(2n) {
+				@include media-breakpoint-up(xl) {
+					grid-column: 7 / span 6;
+				}
+			}
+		}
+	}
+
+	.hs-button {
+		width: 100%;
+	}
+
+	.wp-block-html {
+		padding: 0;
+	}
+}

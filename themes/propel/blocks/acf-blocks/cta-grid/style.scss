@@ -1,0 +1,28 @@
+@import "../../../css/base-includes";
+
+.block-cta-grid {
+	&.is-style-narrow {
+		.block-cta-grid__col {
+			@include media-breakpoint-up(md) {
+				width: 66.6666666667%;
+				max-width: 66.6666666667%;
+			}
+		}
+
+		.block-cta-grid__content {
+			margin: 0;
+			padding: responsive-values(88, 96) responsive-values(20, 112) rem(96);
+		}
+	}
+
+	&__col {
+		width: 100%;
+		max-width: 100%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	&__content {
+		padding: responsive-values(88, 128) responsive-values(20, 224) responsive-values(96, 144);
+	}
+}

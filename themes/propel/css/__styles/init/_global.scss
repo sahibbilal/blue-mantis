@@ -1,0 +1,197 @@
+/**
+ * Base styles that aim to normalize fonts, and display of elements
+ * across browsers, and make writing further styles easier.
+ */
+
+/* Set font and clear body padding */
+html,
+button,
+input,
+select,
+textarea {
+	font-family: font(base);
+}
+
+body {
+	@include body-1(false);
+
+	min-width: rem(320);
+	margin: 0;
+	color: paint(text);
+	font-family: font(base);
+	background-color: paint(white);
+	-webkit-font-smoothing: antialiased;
+
+	@include media-breakpoint-down(sm) {
+		font-size: 1rem;
+		line-height: 1.5;
+	}
+
+	&.resizing {
+		* {
+			transition: none !important;
+		}
+	}
+
+	&.lock-scroll {
+		overflow: hidden;
+	}
+
+	&.overlayed #page {
+		position: relative;
+
+		&::before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			content: "";
+			z-index: 9;
+			display: block;
+			background: rgba(paint(neutral-8), 0.75);
+		}
+
+		.main-header {
+			background-color: paint(white);
+		}
+	}
+}
+
+#wpadminbar {
+	position: fixed;
+}
+
+/* Setting sizes is much more predictable with border-box */
+* {
+	&,
+	&::before,
+	&::after {
+		box-sizing: border-box;
+	}
+}
+
+figure {
+	margin: 0;
+}
+
+/* Make all images responsive */
+img {
+	height: auto;
+	max-width: 100%;
+	vertical-align: middle;
+}
+
+// Horizontal rule.
+hr {
+	margin: rem(48) 0;
+	border-top: 1px solid paint(neutral-44);
+
+	@include media-breakpoint-up(md) {
+		margin: rem(80) 0;
+	}
+}
+
+/* Normalize links across browsers */
+a {
+	text-decoration: none;
+	transition: color $transition-standard;
+
+	&:hover {
+		text-decoration: none;
+	}
+
+	&:not([class]) {
+		color: inherit;
+		text-decoration: underline;
+		word-wrap: break-word;
+
+		@include alt-text-selectors() {
+			color: paint(white);
+
+			&:hover,
+			&:focus {
+				color: paint(neutral-85);
+			}
+		}
+
+		&:hover,
+		&:focus {
+			color: paint(blue-1);
+			text-decoration: underline;
+		}
+
+		img {
+			border: 0;
+		}
+	}
+}
+
+a:focus,
+a:hover {
+	color: paint(blue-1);
+	text-decoration: none;
+}
+
+.tablet-checker {
+	display: none;
+
+	@include media-breakpoint-down(md) {
+		display: block;
+	}
+}
+
+.container-fluid {
+	@include media-breakpoint-down(sm) {
+		padding: 0 rem(20);
+	}
+}
+
+.row {
+	@include media-breakpoint-down(md) {
+		margin: 0 rem(-10);
+	}
+
+	@include media-breakpoint-down(xs) {
+		margin: 0 rem(-7.5);
+	}
+}
+
+*[class*=" col-"],
+*[class^="col-"] {
+	@include media-breakpoint-down(md) {
+		padding: 0 rem(10);
+	}
+
+	@include media-breakpoint-down(xs) {
+		padding: 0 rem(7.5);
+	}
+}
+
+#page {
+	position: relative;
+
+	> .content-wrapper {
+		> .acf-block:first-child {
+			body.page-has-alt-nav & {
+				margin-top: rem(-64);
+			}
+		}
+	}
+}
+
+/* Set custom outline styles */
+a,
+button,
+input,
+select,
+textarea {
+	&:focus {
+		outline: none;
+
+		html.user-tab-nav & {
+			outline: $outline;
+			outline-offset: 0;
+		}
+	}
+}

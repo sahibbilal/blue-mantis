@@ -1,0 +1,100 @@
+@import "../../../css/base-includes";
+
+.block-hero-standard {
+	position: relative;
+	z-index: 1;
+	padding: $block-spacing 0 !important;
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(254.39deg, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0) 100%), linear-gradient(254.39deg, rgba(0, 43, 94, 0.3) 50%, rgba(7, 109, 242, 0.3) 91.17%), #000;
+	overflow: hidden;
+
+	&:first-child {
+		@include media-breakpoint-up(md) {
+			padding-top: rem(150) !important;
+		}
+
+		@include media-breakpoint-up(lg) {
+			padding-top: rem(190) !important;
+		}
+
+		@include media-breakpoint-up(xl) {
+			padding-top: rem(208) !important;
+		}
+	}
+
+	&.block-hero-standard--back-link {
+		border-top: 64px solid transparent;
+		background-origin: border-box;
+
+		&:first-child {
+			@include media-breakpoint-up(md) {
+				padding-top: rem(90) !important;
+			}
+
+			@include media-breakpoint-up(lg) {
+				padding-top: rem(112) !important;
+			}
+
+			@include media-breakpoint-up(xl) {
+				padding-top: rem(144) !important;
+			}
+		}
+	}
+
+	.c-btn--back__wrapper {
+		position: absolute;
+		top: rem(16);
+		left: var(--gutterWidth, #{rem(20)});
+		z-index: 2;
+		margin: 0;
+	}
+
+	&__container {
+		@include media-breakpoint-up(md) {
+			@include grid;
+
+			align-items: center;
+		}
+	}
+
+	&__content {
+		@include media-breakpoint-up(md) {
+			grid-area: 1/ 1 / 2 / span 6;
+		}
+
+		@include media-breakpoint-up(lg) {
+			grid-column: 1 / span 5;
+		}
+
+		.block-hero-standard--left & {
+			@include media-breakpoint-up(md) {
+				grid-column: 7 / span 6;
+			}
+
+			@include media-breakpoint-up(lg) {
+				grid-column: 8 / span 5;
+			}
+		}
+	}
+
+	&__image {
+		width: calc(100% + var(--gutterWidth, #{rem(20)}) * 2);
+		max-width: none;
+		min-height: responsive-values(375, 824);
+		margin: rem(48) calc(var(--gutterWidth, #{rem(20)}) * -1) calc($block-spacing * -1);
+		object-fit: cover;
+
+		@include media-breakpoint-up(md) {
+			grid-area: 1 / 7 / 2 / span 6;
+			width: calc(100% + var(--gutterWidth, #{rem(20)}));
+			margin: calc($block-spacing * -1) calc(var(--gutterWidth, #{rem(20)}) * -1) calc($block-spacing * -1) 0;
+		}
+
+		.block-hero-standard--left & {
+			@include media-breakpoint-up(md) {
+				grid-column: 1 / span 6;
+				margin-right: 0;
+				margin-left: calc(var(--gutterWidth, #{rem(20)}) * -1);
+			}
+		}
+	}
+}

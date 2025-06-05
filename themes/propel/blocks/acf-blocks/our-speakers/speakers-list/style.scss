@@ -1,0 +1,7 @@
+@import "../../../../css/base-includes";
+
+.block-speakers-list {
+    display: flex;
+    flex-direction: column;
+    gap: rem(20);
+}

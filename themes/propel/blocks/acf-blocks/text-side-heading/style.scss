@@ -1,0 +1,19 @@
+@import "../../../css/base-includes";
+
+.block-text-side-heading {
+	display: block;
+
+	.wp-block-columns {
+		&:not(.is-not-stacked-on-mobile) {
+			> .wp-block-column {
+				@include media-breakpoint-down(sm) {
+					margin-bottom: rem(16);
+
+					&:last-child {
+						margin-bottom: 0;
+					}
+				}
+			}
+		}
+	}
+}

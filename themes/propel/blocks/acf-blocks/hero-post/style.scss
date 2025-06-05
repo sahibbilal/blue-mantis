@@ -1,0 +1,120 @@
+@import "../../../css/base-includes";
+
+body.single-resource,
+body.single-event {
+	.block-hero-post--featured-image {
+		margin-bottom: rem(24);
+		padding-bottom: rem(24);
+	}
+}
+
+.block-hero-post {
+	position: relative;
+	z-index: 1;
+	padding-top: responsive-values(124, 158);
+	text-align: center;
+
+	&--featured-image {
+		padding-bottom: 0;
+
+		@include headings(1, 6, "& +", "", true) {
+			padding-top: var(--featuredImageOffset, 0);
+		}
+
+		+ p {
+			padding-top: var(--featuredImageOffset, 0);
+		}
+
+		+ * {
+			padding-top: calc(var(--featuredImageOffset, 0) + $block-spacing);
+		}
+	}
+
+	&::after {
+		position: absolute;
+		top: 0;
+		left: 0;
+		content: "";
+		z-index: -1;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%), linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(7, 109, 242, 0.2) 100%), linear-gradient(270deg, rgba(0, 25, 54, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%);
+	}
+
+	body.single-event & {
+		&::after {
+			background: linear-gradient(270deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 29.55%);
+		}
+	}
+
+	body.single-resource & {
+		&::after {
+			background: linear-gradient(180deg, rgba(0, 43, 94, 0.85) 0%, rgba(0, 19, 41, 0.934174) 68.35%, paint(neutral-0) 100%);
+		}
+	}
+
+	.single-post &,
+	&.is-style-full-background-image {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		min-height: responsive-values(600, 800);
+
+		&::after {
+			background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%), linear-gradient(90deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 50%), linear-gradient(180deg, rgba(0, 0, 0, 0) 50.06%, paint(neutral-0) 100%), rgba(0, 0, 0, 0.2);
+		}
+	}
+
+	&__row {
+		justify-content: center;
+	}
+
+	&__primary-term {
+		@include t6;
+	}
+
+	&__title {
+		margin-top: 0;
+		margin-bottom: responsive-values(24, 36);
+	}
+
+	&__image-wrapper {
+		margin-top: responsive-values(48, 72);
+		margin-bottom: calc(var(--featuredImageOffset, 0) * -1);
+	}
+
+	&__image {
+		&[src*="block-library-placeholder.png"] {
+			width: 100%;
+		}
+	}
+
+	&__meta {
+		margin-bottom: rem(8);
+		font-size: 0;
+		line-height: 0;
+
+		span {
+			@include subtitle-2(false);
+
+			&:not(:last-child) {
+				&::after {
+					content: "|";
+					display: inline-block;
+					margin: auto rem(8);
+					color: paint(text);
+				}
+			}
+		}
+	}
+
+	&__background-image {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}

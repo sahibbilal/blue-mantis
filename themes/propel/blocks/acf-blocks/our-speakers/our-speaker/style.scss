@@ -1,0 +1,51 @@
+@import "../../../../css/base-includes";
+
+.block-our-speaker {
+	display: flex;
+	flex-direction: column;
+	gap: rem(24);
+
+	@include media-breakpoint-up(md) {
+		flex-direction: row;
+	}
+
+	&__image-wrapper {
+		padding-bottom: unset;
+		width: rem(150);
+		min-width: rem(150);
+		height: rem(170);
+	}
+
+	&__name {
+		@include title-1(true);
+
+		margin-top: 0;
+		margin-bottom: rem(8);
+	}
+
+	&__meta {
+		margin-bottom: rem(8);
+		font-size: 0;
+		line-height: 0;
+
+		span {
+			@include subtitle-2(false);
+
+			&:not(:last-child) {
+				&::after {
+					content: " | ";
+				}
+			}
+		}
+	}
+
+	&__linkedin-url {
+		margin-top: auto;
+
+		&::before {
+			@include icon-font($icon-linkedin);
+
+			color: paint(text);
+		}
+	}
+}

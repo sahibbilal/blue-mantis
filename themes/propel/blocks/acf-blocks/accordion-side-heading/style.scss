@@ -1,0 +1,39 @@
+@import "../../../css/base-includes";
+
+.block-accordion-side-heading {
+	@each $color, $value in $background-colors {
+		&.bg-#{$color} {
+			.acf-block.bg-#{$color} + & {
+				margin-top: $block-spacing-first-text-child-offset;
+			}
+		}
+	}
+
+	&__container {
+		@include media-breakpoint-up(md) {
+			@include grid();
+		}
+	}
+
+	.block-content {
+		@include media-breakpoint-up(md) {
+			grid-column: 1 / 6;
+		}
+
+		@include media-breakpoint-up(xl) {
+			grid-column: 1 / 5;
+		}
+	}
+
+	.block-accordion {
+		padding: 0;
+
+		@include media-breakpoint-up(md) {
+			grid-column: 6 / 13;
+		}
+
+		@include media-breakpoint-down(sm) {
+			margin-top: rem(48);
+		}
+	}
+}

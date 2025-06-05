@@ -1,0 +1,84 @@
+@import "../../../../css/base-includes";
+
+.block-card-award {
+	flex: 0 0 100%;
+	margin-top: rem(32);
+
+	@include media-breakpoint-up(sm) {
+		flex-basis: calc(50% - rem(32));
+
+		&:nth-child(even) {
+			margin-left: rem(32);
+		}
+
+		&:nth-child(2) {
+			margin-top: 0;
+		}
+	}
+
+	@include media-breakpoint-up(md) {
+		flex-basis: calc((100% - rem(64)) / 3);
+
+		&:nth-child(odd) {
+			margin-left: rem(32);
+		}
+
+		&:nth-child(3n + 1) {
+			margin-left: 0;
+		}
+
+		&:nth-child(3) {
+			margin-top: 0;
+		}
+	}
+
+	@include media-breakpoint-up(lg) {
+		flex-basis: calc((100% - rem(96)) / 4);
+
+		&:nth-child(3n + 1) {
+			margin-left: rem(32);
+		}
+
+		&:nth-child(4n + 1) {
+			margin-left: 0;
+		}
+
+		&:nth-child(4) {
+			margin-top: 0;
+		}
+	}
+
+	&:first-child {
+		margin-top: 0;
+	}
+
+	.block-cards__grid & {
+		@include media-breakpoint-down(md) {
+			margin: 0;
+		}
+	}
+
+	&__image-wrapper {
+		padding-bottom: rem(80);
+	}
+
+	img {
+		top: rem(24);
+		left: rem(24);
+		width: auto;
+		height: rem(24);
+	}
+
+	&__content {
+		margin: 0 rem(24);
+		padding: rem(16 0 32);
+		border-top: 1px solid paint(button-default);
+	}
+
+	// Make Card in Text Columns block equal height
+	.wp-block-column & {
+		@include media-breakpoint-up(md) {
+			flex-grow: 1;
+		}
+	}
+}

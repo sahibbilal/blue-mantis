@@ -1,0 +1,240 @@
+@import "../../../../css/base-includes";
+
+.block-primary-nav-item {
+	@include media-breakpoint-down(md) {
+		padding: 0 rem(20);
+	}
+
+	@include media-breakpoint-up(lg) {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		height: rem(64);
+	}
+
+	&:first-child {
+		@include media-breakpoint-up(lg) {
+			margin-left: auto;
+		}
+	}
+
+	> .wp-block-button {
+		@include media-breakpoint-up(lg) {
+			position: relative;
+			z-index: 999;
+			margin: auto 0 auto 0;
+		}
+
+		&.is-style-text {
+			@include media-breakpoint-down(md) {
+				margin: 0;
+			}
+
+			&::before {
+				@include media-breakpoint-up(lg) {
+					position: absolute;
+					left: 0;
+					bottom: 0;
+					right: responsive-values(24, 40, "lg", "xxl");
+					content: "";
+					height: 2px;
+					background-color: paint(button-default);
+					transform: scaleX(0);
+					transform-origin: bottom left;
+					pointer-events: none;
+					transition: transform 0.4s ease-in-out;
+				}
+			}
+
+			&.active {
+				&::before {
+					@include media-breakpoint-up(lg) {
+						transform: scaleX(1);
+					}
+				}
+			}
+
+			.wp-block-button__link {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				align-items: center;
+				height: rem(64);
+				color: paint(neutral-0);
+
+				@include media-breakpoint-down(md) {
+					width: 100%;
+					padding: rem(16 0);
+				}
+
+				@include media-breakpoint-up(lg) {
+					padding-right: responsive-values(24, 40, "lg", "xxl");
+					font-size: responsive-values(14, 16, "lg", "xxl");
+					line-height: 1.25;
+				}
+
+				body.page-has-alt-nav:not(.primary-submenu-open):not(.primary-menu-open):not(.scrolled) & {
+					color: paint(white);
+				}
+			}
+		}
+
+		&.is-style-primary {
+			.wp-block-button__link {
+				body.page-has-alt-nav:not(.primary-submenu-open):not(.primary-menu-open):not(.scrolled) & {
+					color: paint(neutral-0);
+					border-color: paint(button-default);
+					background-color: paint(button-default);
+
+					&:hover,
+					&:focus {
+						color: paint(neutral-0);
+						border-color: paint(button-hover);
+						background-color: paint(button-hover);
+					}
+				}
+			}
+		}
+
+		&.is-style-secondary {
+			.wp-block-button__link {
+				body.page-has-alt-nav:not(.primary-submenu-open):not(.primary-menu-open):not(.scrolled) & {
+					color: paint(white);
+					border-color: paint(white);
+
+					&:hover,
+					&:focus {
+						color: paint(neutral-0);
+						border-color: paint(button-hover);
+						background-color: paint(button-hover);
+					}
+				}
+			}
+		}
+
+		&.is-style-tertiary {
+			.wp-block-button__link {
+				body.page-has-alt-nav:not(.primary-submenu-open):not(.primary-menu-open):not(.scrolled) & {
+					color: paint(white);
+
+					&::before {
+						background-color: paint(white);
+					}
+
+					&:hover,
+					&:focus {
+						color: paint(white);
+
+						&::before {
+							background-color: paint(button-hover);
+						}
+					}
+				}
+			}
+		}
+
+		&:not(.is-style-text) {
+			@include media-breakpoint-down(md) {
+				width: 100%;
+				margin-top: rem(32);
+			}
+
+			@include media-breakpoint-up(lg) {
+				margin-right: responsive-values(12, 20, "lg", "xxl");
+			}
+
+			.wp-block-button__link {
+				@include media-breakpoint-up(lg) {
+					@include button-small;
+				}
+
+				@include media-breakpoint-down(md) {
+					width: 100%;
+				}
+			}
+		}
+
+		&:not(:only-child) {
+			.wp-block-button__link {
+				&::after {
+					@include icon-font($icon-triangle-right, #{rem(18)});
+
+					@include media-breakpoint-down(md) {
+						padding-left: rem(16);
+						transition: color $transition-standard;
+					}
+
+					@include media-breakpoint-up(lg) {
+						content: $icon-triangle-down;
+						margin-left: rem(2);
+						font-size: rem(12);
+						transition: transform 0.4s ease-in-out;
+					}
+				}
+
+				&:hover,
+				&:focus {
+					&::after {
+						@include media-breakpoint-down(md) {
+							color: paint(button-hover);
+						}
+					}
+				}
+			}
+
+			&.is-style-primary,
+			&.is-style-secondary {
+				.wp-block-button__link {
+					&::after {
+						@include media-breakpoint-up(lg) {
+							margin-left: rem(8);
+						}
+					}
+				}
+			}
+
+			&.active {
+				.wp-block-button__link {
+					&::after {
+						@include media-breakpoint-up(lg) {
+							transform: rotate(180deg);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&.is-style-align-right {
+		@include media-breakpoint-up(lg) {
+			order: 999;
+		}
+
+		@include media-breakpoint-down(md) {
+			position: fixed;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			height: rem(100);
+			padding: rem(20 20 32 20);
+			background-color: paint(white);
+			box-shadow: 0 0 rem(20) rgba(0, 0, 0, 0.1);
+		}
+
+		> .wp-block-button {
+			@include media-breakpoint-up(lg) {
+				margin: auto 0 auto responsive-values(24, 40);
+			}
+
+			@include media-breakpoint-down(md) {
+				margin: 0;
+			}
+
+			&:not(.is-style-text) {
+				@include media-breakpoint-up(lg) {
+					margin-left: rem(10);
+				}
+			}
+		}
+	}
+}

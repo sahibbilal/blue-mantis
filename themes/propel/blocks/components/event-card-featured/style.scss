@@ -1,0 +1,77 @@
+@import "../../../css/base-includes";
+
+.event-card-featured {
+	@include media-breakpoint-up(md) {
+		@include grid;
+
+		align-items: center;
+	}
+
+	.block-editor-block-list__block & {
+		pointer-events: none;
+	}
+
+	&__content {
+		@include media-breakpoint-up(md) {
+			grid-column: 1 / span 6;
+		}
+
+		@include media-breakpoint-up(lg) {
+			grid-column: 1 / span 5;
+		}
+	}
+
+	&__image-wrapper {
+		margin-top: rem(48);
+		padding-bottom: 66.25%;
+
+		@include media-breakpoint-up(md) {
+			grid-column: 8 / span 5;
+			margin-top: auto;
+		}
+
+		@include media-breakpoint-up(lg) {
+			grid-column: 7 / span 6;
+		}
+	}
+
+	&__type {
+		@include t6(false);
+
+		margin-bottom: rem(16);
+		color: paint(neutral-85);
+	}
+
+	&__title {
+		@include t2;
+
+		margin-top: 0;
+	}
+
+	&__link {
+		color: paint(text);
+
+		&:hover,
+		&:focus {
+			color: paint(button-hover);
+		}
+	}
+
+	&__author {
+		@include subtitle-2(false);
+	}
+
+	&__image-wrapper-button {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		z-index: 2;
+		width: rem(72);
+		height: rem(72);
+		transform: translate(-50%, -50%);
+
+		&::before {
+			font-size: rem(32);
+		}
+	}
+}

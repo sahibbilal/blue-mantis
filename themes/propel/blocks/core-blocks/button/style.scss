@@ -1,0 +1,361 @@
+@import "../../../css/base-includes";
+@import "button-lightbox";
+
+.wp-block-button {
+	margin-top: responsive-values(24, 36);
+	margin-bottom: responsive-values(24, 36);
+	line-height: 0;
+
+	&--icon-left {
+		.wp-block-button__link {
+			&::before {
+				@include icon-font;
+
+				content: var(--buttonIcon);
+				margin-right: rem(8);
+				font-size: rem(24);
+				transition: transform $transition-standard;
+			}
+
+			&.hover,
+			a:hover &,
+			a:focus &,
+			&:hover,
+			&:focus {
+				&::before {
+					transform: translateX(rem(-3));
+				}
+			}
+		}
+	}
+
+	&--icon-right {
+		.wp-block-button__link {
+			&::after {
+				@include icon-font;
+
+				content: var(--buttonIcon);
+				margin-left: rem(8);
+				font-size: rem(24);
+				transition: transform $transition-standard;
+			}
+
+			&.hover,
+			a:hover &,
+			a:focus &,
+			&:hover,
+			&:focus {
+				&::after {
+					transform: translateX(rem(3));
+				}
+			}
+		}
+	}
+
+	.wp-block-buttons & {
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+
+	&.aligncenter {
+		text-align: center;
+	}
+
+	&.alignleft {
+		text-align: left;
+	}
+
+	&.alignright {
+		text-align: right;
+	}
+
+	&:not([class*="is-style-"]),
+	&.is-style-primary {
+		@include media-breakpoint-down(xs) {
+			width: 100%;
+		}
+
+		&.wp-block-button--small {
+			.wp-block-button__link {
+				@include button-small;
+			}
+		}
+
+		.wp-block-button__link {
+			@include button-primary;
+
+			@include media-breakpoint-down(xs) {
+				width: 100%;
+			}
+		}
+
+		&.wp-block-button--icon-left {
+			.wp-block-button__link {
+				padding-left: rem(24);
+			}
+		}
+
+		&.wp-block-button--icon-right {
+			.wp-block-button__link {
+				padding-right: rem(24);
+			}
+		}
+	}
+
+	&.is-style-secondary {
+		@include media-breakpoint-down(xs) {
+			width: 100%;
+		}
+
+		&.wp-block-button--small {
+			.wp-block-button__link {
+				@include button-small;
+			}
+		}
+
+		.wp-block-button__link {
+			@include button-secondary;
+
+			@include media-breakpoint-down(xs) {
+				width: 100%;
+			}
+		}
+
+		&.wp-block-button--icon-left {
+			.wp-block-button__link {
+				padding-left: rem(24);
+			}
+		}
+
+		&.wp-block-button--icon-right {
+			.wp-block-button__link {
+				padding-right: rem(24);
+			}
+		}
+	}
+
+	&.is-style-tertiary {
+		margin-top: responsive-values(20, 32);
+		margin-bottom: responsive-values(20, 48);
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		.wp-block-buttons & {
+			margin-top: auto;
+			margin-bottom: auto;
+		}
+
+		&.wp-block-button--icon-right {
+			.wp-block-button__link {
+				transition: color $transition-standard, transform $transition-standard;
+
+				&::before {
+					transition: width $transition-standard, background-color $transition-standard, transform $transition-standard;
+				}
+
+				&::after {
+					margin-left: 1px;
+				}
+
+				&.hover,
+				a:hover &,
+				a:focus &,
+				&:hover,
+				&:focus {
+					&::after {
+						background-color: transparent !important;
+						transform: translateX(rem(10));
+					}
+				}
+			}
+		} // .wp-block-button.is-style-tertiary.wp-block-button--icon-right
+
+		&.wp-block-button--icon-left {
+			.wp-block-button__link {
+				transition: color $transition-standard, transform $transition-standard;
+
+				&::before {
+					position: relative;
+					left: auto;
+					bottom: auto;
+					content: var(--buttonIcon);
+					width: auto;
+					height: auto;
+					margin-right: 1px;
+					background-color: transparent;
+				}
+
+				&::after {
+					position: absolute;
+					left: 0;
+					bottom: 0;
+					content: "";
+					width: 100%;
+					height: rem(2);
+					margin-right: 1px;
+					background-color: paint(button-default);
+					transition: width $transition-standard, background-color $transition-standard, transform $transition-standard;
+				}
+
+				&.hover,
+				a:hover &,
+				a:focus &,
+				&:hover,
+				&:focus {
+					&::before {
+						background-color: transparent !important;
+						transform: translateX(rem(-10));
+					}
+
+					&::after {
+						background-color: paint(button-hover);
+					}
+				}
+			}
+		} // .wp-block-button.is-style-tertiary.wp-block-button--icon-left
+
+		&.wp-block-button--small {
+			.wp-block-button__link {
+				@include link-2(false);
+
+				padding: rem(4) 0 !important;
+				transform: none !important;
+
+				&::before {
+					transition-property: transform, width, background-color;
+				}
+
+				&::after {
+					margin-left: rem(3);
+					font-size: rem(18);
+				}
+
+				&.hover,
+				a:hover &,
+				a:focus &,
+				&:hover,
+				&:focus {
+					&::before {
+						width: 100%;
+					}
+
+					&::after {
+						transform: translateX(rem(6));
+					}
+				}
+			}
+
+			&.wp-block-button--icon-left {
+				.wp-block-button__link {
+					&::before {
+						width: auto;
+						font-size: rem(18);
+					}
+
+					&::after {
+						transform: none;
+						transition-property: background-color;
+					}
+
+					&.hover,
+					a:hover &,
+					a:focus &,
+					&:hover,
+					&:focus {
+						&::before {
+							transform: translateX(rem(-6));
+						}
+
+						&::after {
+							left: 0;
+							width: 100%;
+						}
+					}
+				}
+			}
+		} // .wp-block-button.is-style-tertiary.wp-block-button--icon-small
+
+		.wp-block-button__link {
+			@include button-tertiary;
+		}
+	} // .wp-block-button.is-style-tertiary.wp-block-button--icon-right {
+
+	&.is-style-social {
+		.wp-block-button__link {
+			@include button-social;
+		}
+
+		&.wp-block-button--icon-left {
+			.wp-block-button__link {
+				&::before {
+					position: relative;
+					left: auto;
+					bottom: auto;
+					content: var(--buttonIcon);
+					width: auto;
+					height: auto;
+					background-color: transparent;
+				}
+			}
+		}
+
+		&.wp-block-button--icon-right {
+			.wp-block-button__link {
+				&::before {
+					display: none;
+				}
+			}
+		}
+	}
+
+	&.is-style-text {
+		line-height: inherit;
+
+		.wp-block-button__link {
+			padding: 0;
+			color: paint(text);
+			text-decoration: underline;
+			border: none;
+			background: transparent;
+			-webkit-appearance: none;
+			transition: color $transition-standard;
+
+			&.hover,
+			a:hover &,
+			a:focus &,
+			&:hover,
+			&:focus {
+				color: var(--blockHoverColor, paint(blue-1));
+			}
+		}
+	}
+
+	&__link {
+		padding-left: rem(30);
+		border-radius: 0;
+
+		&.aligncenter {
+			margin-right: auto;
+			margin-left: auto;
+			text-align: center;
+		}
+
+		&.alignleft {
+			margin-right: auto;
+			margin-left: 0;
+			text-align: left;
+		}
+
+		&.alignright {
+			margin-right: 0;
+			margin-left: auto;
+			text-align: right;
+		}
+	}
+}

@@ -1,0 +1,29 @@
+@import "../../../css/base-includes";
+
+.block-icon {
+	line-height: 0;
+
+	&--start {
+		text-align: left;
+	}
+
+	&--center {
+		text-align: center;
+	}
+
+	&--end {
+		text-align: right;
+	}
+
+	&:not(:first-child) {
+		margin-top: rem(16);
+	}
+
+	&:not(:last-child) {
+		margin-bottom: rem(12);
+	}
+
+	&__icon {
+		font-size: rem(48);
+	}
+}

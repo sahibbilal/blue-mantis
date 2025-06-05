@@ -1,0 +1,45 @@
+@import "../../../css/base-includes";
+
+.component-lightbox {
+	&__container {
+		position: fixed;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		z-index: 999;
+		padding-top: rem(80);
+		background-color: rgba(paint(neutral-0), 0.8);
+		visibility: visible;
+		opacity: 1;
+		transition: opacity $transition-standard;
+
+		&:not(.active) {
+			visibility: hidden;
+			opacity: 0;
+		}
+	}
+
+	&__close {
+		position: absolute;
+		top: rem(30);
+		right: rem(30);
+		z-index: 999;
+		color: paint(white);
+		border-color: paint(neutral-16);
+		background-color: paint(neutral-16);
+	}
+
+	&__iframe {
+		position: relative;
+		width: 100%;
+
+		iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+}

@@ -1,0 +1,35 @@
+@import "../../../css/base-includes";
+
+.editor-styles-wrapper .block-icon-side-grid {
+	padding-top: 0 !important;
+
+	&__container {
+		padding: 0;
+	}
+
+	.block-icon {
+		min-height: rem(48);
+	}
+
+	.block-content,
+	.block-icon-contents {
+		grid-column: 1 / 13;
+		margin: 0 rem(-36);
+	}
+
+	.wp-block-button {
+		margin: 0;
+
+		&:not([class*="is-style-"]) .wp-block-button__link {
+			position: static !important;
+			margin: 0;
+			color: inherit;
+			font-size: rem(12) !important;
+
+			&::before {
+				content: "Link to: ";
+				display: inline-block;
+			}
+		}
+	}
+}

@@ -1,0 +1,81 @@
+@import "../../../css/base-includes";
+
+.block-icon-pillars {
+	padding-top: 0;
+	padding-bottom: 0;
+
+	> .container:first-of-type > {
+		@include headings() {
+			&:first-child {
+				margin-top: 0;
+				margin-bottom: responsive-values(16, 20);
+				color: paint(neutral-44);
+				letter-spacing: 1.8px;
+			}
+		}
+	}
+
+	&__contents {
+		padding-top: responsive-values(24, 44);
+		padding-bottom: rem(24);
+	}
+
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		font-size: 0;
+		white-space: nowrap;
+		text-align: center;
+		overflow-x: auto;
+		overflow-y: hidden;
+	}
+}
+
+.block-icon-pillar {
+	position: relative;
+	flex-shrink: 0;
+	min-width: rem(112);
+	padding: responsive-values(16, 30);
+	padding-bottom: responsive-values(20, 18);
+	transition: background-color $transition-standard;
+
+	@include media-breakpoint-up(md) {
+		+ .block-icon-pillar {
+			margin-left: responsive-values(15, 20);
+		}
+	}
+
+	&:hover,
+	&:focus {
+		background: paint(neutral-98) !important;
+	}
+
+	.block-icon:not(:last-child) {
+		margin-bottom: rem(8);
+	}
+
+	.block-icon__icon {
+		color: paint(blue-1);
+		font-size: rem(48);
+	}
+
+	p {
+		@include nav-3(false);
+
+		max-width: responsive-values(80, 115);
+		padding: 0 rem(5);
+		color: paint(neutral-44);
+		white-space: normal;
+	}
+
+	.wp-block-button__link {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		font-size: 0 !important;
+		border: 0 !important;
+		background: transparent !important;
+	}
+}

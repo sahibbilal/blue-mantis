@@ -1,0 +1,10 @@
+@import "../../../css/base-includes";
+
+.wp-block-separator {
+	@include responsive-grid();
+
+	margin: responsive-values(24, 72) auto;
+	padding: 0 !important;
+	border-width: 1px 0 0 0 !important;
+	border-top: 1px solid paint(text) !important;
+}

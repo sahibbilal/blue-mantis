@@ -1,0 +1,54 @@
+.search-field {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	margin: 0;
+
+	&__input {
+		flex: 1;
+		padding: responsive-values(13, 23) responsive-values(55, 71) responsive-values(13, 23) responsive-values(15, 23) !important;
+		font-weight: var(--lead-1-font-weight) !important;
+		font-size: var(--lead-1-font-size) !important;
+		font-family: var(--lead-1-font-family) !important;
+		line-height: var(--lead-1-line-height) !important;
+		letter-spacing: var(--lead-1-letter-spacing) !important;
+		border: none;
+		-webkit-appearance: none;
+		appearance: none;
+
+		&:focus {
+			padding: responsive-values(14, 24) responsive-values(56, 72) responsive-values(12, 22) responsive-values(16, 24) !important;
+			border: 1px solid paint(text);
+			border-color: paint(white) paint(white) paint(button-default) paint(white);
+			border-width: 0 0 2px 0;
+		}
+	}
+
+	&__submit {
+		position: absolute;
+		top: 50%;
+		right: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: rem(48);
+		width: responsive-values(64, 96);
+		height: rem(48);
+		height: responsive-values(64, 96);
+		padding: 0;
+		border: none;
+		background: none;
+		transform: translateY(-50%);
+		-webkit-appearance: none;
+		appearance: none;
+		transition: color $transition-standard;
+
+		&::before {
+			@include icon-font( $icon-search, #{responsive-values(32, 40)});
+		}
+
+		&:hover {
+			color: paint(button-default);
+		}
+	}
+}

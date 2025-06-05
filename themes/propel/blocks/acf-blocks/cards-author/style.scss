@@ -1,0 +1,93 @@
+@import "../../../css/base-includes";
+
+.block-cards-author {
+	&__container {
+		@include media-breakpoint-up(sm) {
+			@include grid;
+		}
+	}
+
+	&__image-wrapper {
+		margin-bottom: rem(24);
+		padding-bottom: 133.22368421%;
+
+		@include media-breakpoint-up(sm) {
+			grid-column: 1 / span 3;
+		}
+
+		@include media-breakpoint-up(lg) {
+			grid-column: 1 / span 5;
+
+			.single-post & {
+				grid-column: 1 / span 3;
+			}
+		}
+
+		@include media-breakpoint-up(xl) {
+			grid-column: 2 / span 4;
+
+			.single-post & {
+				grid-column: 2 / span 2;
+			}
+		}
+	}
+
+	&__content {
+		@include media-breakpoint-up(sm) {
+			grid-column: 4 / span 9;
+		}
+
+		@include media-breakpoint-up(lg) {
+			grid-column: 6 / span 6;
+
+			.single-post & {
+				grid-column: 4 / span 8;
+			}
+		}
+	}
+
+	&__name {
+		@include title-1(true);
+
+		margin-top: 0;
+		margin-bottom: rem(8);
+	}
+
+	&__meta {
+		margin-bottom: rem(8);
+		font-size: 0;
+		line-height: 0;
+
+		span {
+			@include subtitle-2(false);
+
+			&:not(:last-child) {
+				&::after {
+					content: " | ";
+				}
+			}
+		}
+	}
+
+	&__linkedin-url {
+		margin-top: auto;
+
+		&::before {
+			@include icon-font($icon-linkedin);
+
+			color: paint(text);
+		}
+	}
+
+	&__bio {
+		@include body-2(false);
+
+		p {
+			@include body-2(true);
+		}
+
+		.block-cards-author__linkedin-url + & {
+			margin-top: rem(24);
+		}
+	}
+}

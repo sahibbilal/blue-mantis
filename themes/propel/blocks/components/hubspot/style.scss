@@ -1,0 +1,166 @@
+@import "../../../css/base-includes";
+
+.hs-form {
+	label {
+		@include subtitle-2(false);
+
+		display: block;
+		margin-bottom: rem(4);
+	}
+
+	.hs-error-msgs {
+		@include subtitle-3(false);
+
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		margin-top: rem(4);
+		margin-bottom: 0;
+		padding: 0;
+		color: paint(error);
+		list-style: none;
+
+		label {
+			@include subtitle-3(false);
+		}
+	}
+
+	fieldset {
+		display: grid;
+		grid-template-columns: 1fr;
+		max-width: none !important;
+		column-gap: rem(20);
+
+		&.form-columns-2 {
+			@include media-breakpoint-up(sm) {
+				grid-template-columns: 1fr 1fr;
+			}
+		}
+
+		&.form-columns-3 {
+			@include media-breakpoint-up(sm) {
+				grid-template-columns: 1fr 1fr 1fr;
+			}
+		}
+
+		&.form-columns-4 {
+			@include media-breakpoint-up(sm) {
+				grid-template-columns: 1fr 1fr 1fr 1fr;
+			}
+		}
+
+		&.form-columns-5 {
+			@include media-breakpoint-up(sm) {
+				grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+			}
+		}
+
+		.input {
+			margin: 0 !important;
+		}
+
+		.hs-form-field {
+			float: none !important;
+			width: 100% !important;
+		}
+	}
+}
+
+.hs-fieldtype-checkbox,
+.hs-fieldtype-radio {
+	> label {
+		display: block;
+		margin-bottom: rem(16);
+	}
+}
+
+.hbspt-form ul[role="checkbox"],
+.hbspt-form ul[role="radio"],
+.hs_single_checkbox ul {
+	margin: 0 !important;
+	padding: 0;
+	list-style-type: none;
+
+	input[type="radio"],
+	input[type="checkbox"] {
+		&:focus {
+			~ label {
+				&::before {
+					border-color: paint(button-default);
+				}
+			}
+		}
+	}
+
+	li {
+		margin-bottom: 0 !important;
+	}
+
+	br {
+		display: none;
+	}
+}
+
+.hs-input {
+	width: 100% !important;
+}
+
+.hs-form-checkbox-display,
+.hs-form-radio-display,
+.hs-form-booleancheckbox-display {
+	> span {
+		@include subtitle-1(true);
+
+		margin-bottom: rem(6) !important;
+		cursor: pointer;
+
+		&:hover,
+		&:focus {
+			&::before {
+				border-color: paint(button-default);
+			}
+		}
+	}
+}
+
+.hs-form-checkbox-display,
+.hs-form-booleancheckbox-display {
+	input {
+		&:checked {
+			~ span {
+				&::before {
+					content: $icon-check-box-checked;
+				}
+			}
+		}
+	}
+}
+
+.hs-form-radio-display {
+	input {
+		&:checked {
+			~ span {
+				&::before {
+					content: $icon-radio-button-checked;
+				}
+			}
+		}
+	}
+}
+
+.hs-submit {
+	margin-top: responsive-values(8, 24);
+}
+
+.hs-button {
+	@include button-primary;
+}
+
+.hs-form-field {
+	margin-bottom: rem(24) !important;
+	line-height: rem(24);
+}
+
+.hubspot-link__container {
+	display: none;
+}

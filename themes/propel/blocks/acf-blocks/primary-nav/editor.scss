@@ -1,0 +1,123 @@
+@import "../../../css/base-includes";
+
+.editor-styles-wrapper {
+	.block-primary-nav {
+		display: block !important;
+		background-color: paint(neutral-44) !important;
+
+		&::before {
+			display: flex !important;
+			height: auto !important;
+			opacity: 1 !important;
+			pointer-events: auto !important;
+		}
+
+		&::after {
+			display: none !important;
+		}
+
+		* {
+			position: relative !important;
+			top: auto !important;
+			left: auto !important;
+			z-index: unset !important;
+			height: auto !important;
+			visibility: visible !important;
+			opacity: 1 !important;
+			transform: none !important;
+		}
+
+		.acf-block-preview {
+			> div:not([class]) {
+				display: contents !important;
+
+				> *[class*="block-"] {
+					display: contents !important;
+				}
+			}
+
+			> *[class*="block-"] {
+				display: contents !important;
+			}
+		}
+
+		.image-wrapper {
+			height: 0 !important;
+		}
+	}
+
+	.block-primary-nav-mega-menu {
+		overflow: visible !important;
+		pointer-events: auto !important;
+	}
+
+	.block-primary-nav-mega-menu__content {
+		display: grid !important;
+		padding-right: 0 !important;
+		padding-left: 0 !important;
+		clip-path: none !important;
+
+		&::before,
+		&::after {
+			display: none !important;
+		}
+	}
+
+	.block-primary-nav-item {
+		margin-bottom: rem(48) !important;
+	}
+
+	.block-primary-nav-column > .wp-block-button.is-style-text .wp-block-button__link {
+		display: flex !important;
+	}
+
+	.block-primary-nav-item > .wp-block-button.is-style-text .wp-block-button__link {
+		display: flex !important;
+		white-space: nowrap !important;
+	}
+
+	.block-primary-nav-mega-menu__inner {
+		display: flex !important;
+		width: max-content !important;
+		max-width: 100% !important;
+		background-color: paint(white) !important;
+		overflow: visible !important;
+	}
+
+	.block-primary-nav__search .block-primary-nav-mega-menu__content {
+		display: flex !important;
+	}
+
+	.block-primary-nav-featured-post {
+		padding: rem(20 20 20 32) !important;
+	}
+
+	.block-primary-nav__search,
+	.block-primary-nav__hamburger {
+		display: none !important;
+	}
+
+	.wp-block[data-title="Primary Nav Item"]::before {
+		content: "Nav Item" !important;
+	}
+
+	.wp-block[data-title="Primary Nav Mega Menu"]::before {
+		content: "Mega Menu" !important;
+	}
+
+	.wp-block[data-title="Primary Nav Column"]::before {
+		content: "Column" !important;
+	}
+
+	.wp-block[data-title="Primary Nav Full Column Link"]::before {
+		content: "Full Link" !important;
+	}
+
+	.wp-block[data-title="Primary Nav Featured Page"]::before {
+		content: "Featured Page" !important;
+	}
+
+	.wp-block[data-title="Primary Nav Link"]::before {
+		content: "Link" !important;
+	}
+}

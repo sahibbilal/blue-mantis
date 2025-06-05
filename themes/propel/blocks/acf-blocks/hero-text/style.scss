@@ -1,0 +1,18 @@
+@import "../../../css/base-includes";
+
+.block-hero-text {
+	display: block;
+	padding: responsive-values(152, 185) 0 $block-spacing;
+	text-align: center;
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(257.63deg, rgba(0, 0, 0, 0.4) 8.97%, rgba(0, 0, 0, 0) 100%), linear-gradient(257.63deg, rgba(0, 43, 94, 0.4) 8.97%, rgba(7, 109, 242, 0.4) 83.92%), paint(neutral-0);
+
+	@include headings() {
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	p {
+		margin-right: auto;
+		margin-left: auto;
+	}
+}

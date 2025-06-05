@@ -1,0 +1,59 @@
+@import "../../../css/base-includes";
+
+.block-cta-donate {
+	&__container {
+		@include media-breakpoint-up(md) {
+			@include grid();
+
+			row-gap: responsive-values(20, 32);
+		}
+	}
+
+	&__content {
+		margin-bottom: rem(48);
+
+		@include media-breakpoint-up(md) {
+			grid-area: 1 / 1 / 2 / 8;
+			margin-bottom: 0;
+		}
+	}
+
+	&__form-wrapper {
+		padding: responsive-values(32, 48) responsive-values(20, 32);
+
+		@include media-breakpoint-up(md) {
+			grid-area: 1 / 8 / 2 / 13;
+		}
+
+		@include media-breakpoint-up(xl) {
+			grid-area: 1 / 9 / 2 / 13;
+		}
+
+		@include media-breakpoint-down(sm) {
+			margin-top: rem(72);
+		}
+
+		.c-btn {
+			width: 100%;
+		}
+
+		.gform_footer {
+			.c-btn {
+				margin-top: rem(8);
+			}
+		}
+
+		.gfield_radio {
+			@include media-breakpoint-up(xl) {
+				display: grid;
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+			}
+		}
+
+		.radio-buttons {
+			.gfield_radio {
+				display: flex;
+			}
+		}
+	}
+}

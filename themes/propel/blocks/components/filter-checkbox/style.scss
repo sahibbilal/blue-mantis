@@ -1,0 +1,188 @@
+@import "../../../css/base-includes";
+
+.eight29-filter {
+	&.filter-checkbox {
+		position: relative;
+
+		@include media-breakpoint-down(md) {
+			border-bottom: 1px solid paint(neutral-85);
+		}
+
+		.accordion-select .eight29-filter-label {
+			@include sr-only(true);
+			@include t4(false);
+
+			padding: rem(16 0);
+			line-height: rem(24);
+			transition: border-color $transition-standard;
+
+			@include media-breakpoint-up(lg) {
+				@include subtitle-1(false);
+
+				padding: rem(11);
+				border: 1px solid paint(neutral-85);
+				background-color: paint(white);
+			}
+
+			&::before {
+				display: none;
+			}
+
+			&::after {
+				@include icon-font($icon-maximize, rem(24));
+
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: rem(24);
+				height: rem(24);
+				border: 2px solid paint(button-default);
+				background: none;
+
+				@include media-breakpoint-up(lg) {
+					content: $icon-drop-down;
+					width: rem(24);
+					height: rem(24);
+					font-size: rem(20);
+					border: none;
+				}
+
+				.eight29-app:not(.mobile-modal) & {
+					content: $icon-drop-down;
+					width: rem(24);
+					height: rem(24);
+					font-size: rem(20);
+					border: none;
+				}
+			}
+
+			.eight29-app:not(.mobile-modal) & {
+				@include subtitle-1(false);
+
+				padding: rem(11);
+				border: 1px solid paint(neutral-85);
+				background-color: paint(white);
+			}
+
+			&__heading {
+				@include subtitle-2(false);
+
+				display: none;
+				margin-bottom: rem(4);
+
+				@include media-breakpoint-up(lg) {
+					@include sr-only;
+
+					margin: 0;
+				}
+			}
+
+			span {
+				max-width: 100%;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				overflow: hidden;
+			}
+
+			> span {
+				> span {
+					@include media-breakpoint-down(md) {
+						display: none;
+					}
+				}
+			}
+		}
+
+		ul.checkboxes {
+			padding: rem(0 0 12);
+
+			@include media-breakpoint-up(lg) {
+				padding-top: rem(7);
+				padding-bottom: rem(7);
+			}
+
+			.eight29-app:not(.mobile-modal) & {
+				padding-top: rem(7);
+				padding-bottom: rem(7);
+			}
+
+			li {
+				padding: 0;
+
+				label {
+					padding: rem(8 12);
+					transition: background-color $transition-standard;
+
+					@include media-breakpoint-up(lg) {
+						padding: rem(6 12);
+					}
+
+					&:hover,
+					&:focus {
+						background-color: paint(neutral-92);
+						cursor: pointer;
+					}
+				}
+			}
+		}
+
+		input[type="checkbox"] {
+			display: none;
+
+			+ label {
+				display: flex;
+				align-items: center;
+
+				&::before {
+					@include icon-font($icon-check-box-unchecked, rem(20));
+
+					margin-right: rem(8);
+				}
+			}
+
+			&:checked {
+				+ label::before {
+					@include icon-font($icon-check-box-checked, rem(20));
+				}
+			}
+		}
+	}
+
+	.accordion-select.collapsible {
+		.eight29-filter-label + div {
+			@include media-breakpoint-up(lg) {
+				position: absolute;
+			}
+
+			.eight29-app:not(.mobile-modal) & {
+				position: absolute;
+			}
+		}
+
+		&.open .eight29-filter-label {
+			@include media-breakpoint-up(lg) {
+				padding: rem(12 12 10 12);
+				color: paint(blue-1);
+				border-color: paint(white) paint(white) paint(button-default) paint(white);
+				border-width: 0 0 2px 0;
+			}
+
+			+ div {
+				top: calc(100% + rem(8));
+				z-index: 3;
+				width: 100%;
+				border-radius: rem(2);
+
+				@include media-breakpoint-up(lg) {
+					background-color: paint(white);
+					box-shadow: 0 0 rem(8) rgba(0, 0, 0, 0.08);
+				}
+
+				.eight29-app:not(.mobile-modal) & {
+					background-color: paint(white);
+					box-shadow: 0 0 rem(8) rgba(0, 0, 0, 0.08);
+				}
+			}
+		}
+	}
+}

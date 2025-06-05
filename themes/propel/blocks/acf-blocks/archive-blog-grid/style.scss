@@ -1,0 +1,25 @@
+@import "../../../css/base-includes";
+
+.block-archive-blog-grid {
+	background-color: paint(text, true);
+
+	.acf-block.bg-dark + & {
+		padding-top: 0;
+	}
+
+	.eight29-sidebar__results {
+		color: paint(white);
+	}
+
+	.eight29-posts {
+		grid-template-columns: repeat(1, minmax(0, 1fr));
+
+		@include media-breakpoint-up(sm) {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		@include media-breakpoint-up(xl) {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+	}
+}

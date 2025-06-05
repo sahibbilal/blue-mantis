@@ -1,0 +1,45 @@
+@import "../../../css/base-includes";
+
+.editor-styles-wrapper {
+	.block-accordion-side-image {
+		.wp-block-acf-accordion {
+			width: 100%;
+		}
+
+		.wp-block-acf-accordion-item {
+			display: grid !important;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			margin-bottom: rem(32);
+		}
+
+		.block-accordion-item:not(.wp-block-acf-accordion-item) {
+			display: block !important;
+			border-left: none;
+		}
+
+		.block-accordion-item__figure {
+			grid-column: 2 / 3 !important;
+			position: relative;
+			top: auto;
+			bottom: auto;
+			right: auto;
+			width: 100% !important;
+			transform: none;
+		}
+
+		.block-content {
+			&::after {
+				height: auto;
+			}
+		}
+	}
+
+	.block-accordion-side-image__content {
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+
+	.block-accordion-side-image__spacer {
+		display: none;
+	}
+}

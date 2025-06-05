@@ -1,0 +1,35 @@
+@import "../../../css/base-includes";
+
+.block-text-columns-image {
+	.wp-block-column {
+		display: flex;
+		flex-direction: column;
+
+		@include media-breakpoint-up(md) {
+			display: block;
+		}
+
+		+ .wp-block-column {
+			margin-top: rem(32);
+
+			@include media-breakpoint-up(md) {
+				margin-top: 0;
+			}
+		}
+	}
+
+	.wp-block-image {
+		order: 1;
+		margin-top: rem(16);
+
+		@include media-breakpoint-up(md) {
+			margin: 0 0 rem(24);
+		}
+	}
+
+	.wp-block-heading {
+		@include media-breakpoint-up(md) {
+			margin: 0 0 rem(16);
+		}
+	}
+}

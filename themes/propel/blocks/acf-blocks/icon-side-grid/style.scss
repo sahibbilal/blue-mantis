@@ -1,0 +1,105 @@
+@import "../../../css/base-includes";
+
+.block-icon-side-grid {
+	@each $color, $value in $background-colors {
+		&.bg-#{$color} {
+			.acf-block.bg-#{$color} + & {
+				margin-top: $block-spacing-first-text-child-offset;
+			}
+		}
+	}
+
+	&__container {
+		@include media-breakpoint-up(lg) {
+			@include grid();
+		}
+	}
+
+	.block-content {
+		@include media-breakpoint-up(lg) {
+			grid-column: 1 / 6;
+		}
+
+		@include media-breakpoint-up(xl) {
+			grid-column: 1 / 5;
+		}
+
+		@include headings () {
+			margin-bottom: responsive-values(16, 24);
+		}
+	}
+
+	.block-icon-contents {
+		margin-top: rem(48);
+		padding: 0;
+		text-align: center;
+
+		@include media-breakpoint-up(lg) {
+			grid-column: 6 / 13;
+			margin-top: 0;
+		}
+
+		&__grid {
+			background: paint(neutral-85); // faux borders
+		}
+	}
+
+	.block-icon-content {
+		border: rem(8) solid paint(white);
+
+		@include media-breakpoint-up(lg) {
+			&.block-icon-content:nth-child(3) {
+				border-top: 0;
+			}
+
+			&.block-icon-content:nth-child(odd) {
+				border-left: rem(8) solid paint(white);
+			}
+
+			&.block-icon-content:nth-child(1),
+			&.block-icon-content:nth-child(4) {
+				border-left: 0;
+			}
+		}
+
+		// block out intersection
+		&::after {
+			position: absolute;
+			bottom: rem(-8);
+			right: rem(-8);
+			content: "";
+			z-index: 1;
+			display: none;
+			display: block;
+			width: rem(16);
+			height: rem(16);
+			background: paint(white);
+			transform: translate(50%, 50%);
+		}
+
+		&:nth-child(-n+2) {
+			border-top: 0;
+		}
+
+		&:nth-child(odd) {
+			border-left: 0;
+		}
+	}
+
+	.block-icon {
+		color: paint(blue-1);
+	}
+
+	.wp-block-button:not([class*="is-style-"]) {
+		.wp-block-button__link {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			font-size: 0 !important;
+			border: 0 !important;
+			background: transparent !important;
+		}
+	}
+}

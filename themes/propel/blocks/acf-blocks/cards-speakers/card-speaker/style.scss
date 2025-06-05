@@ -1,0 +1,41 @@
+@import "../../../../css/base-includes";
+
+.block-card-speaker {
+	&__image-wrapper {
+		margin-bottom: rem(24);
+		padding-bottom: 133.22368421%;
+	}
+
+	&__name {
+		@include title-1(true);
+
+		margin-top: 0;
+		margin-bottom: rem(8);
+	}
+
+	&__meta {
+		margin-bottom: rem(8);
+		font-size: 0;
+		line-height: 0;
+
+		span {
+			@include subtitle-2(false);
+
+			&:not(:last-child) {
+				&::after {
+					content: " | ";
+				}
+			}
+		}
+	}
+
+	&__linkedin-url {
+		margin-top: auto;
+
+		&::before {
+			@include icon-font($icon-linkedin);
+
+			color: paint(text);
+		}
+	}
+}

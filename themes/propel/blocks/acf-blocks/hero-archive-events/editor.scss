@@ -1,0 +1,16 @@
+@import "../../../css/base-includes";
+
+.editor-styles-wrapper {
+	.block-hero-archive-events__slider {
+		@include grid;
+
+		grid-column: 1 / span 12;
+		display: grid !important;
+		row-gap: $grid-gap;
+		margin-top: rem(32) !important;
+
+		.event-card {
+			grid-column-end: span 4;
+		}
+	}
+}

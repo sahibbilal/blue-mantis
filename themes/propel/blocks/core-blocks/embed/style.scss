@@ -1,0 +1,24 @@
+@import "../../../css/base-includes";
+
+.wp-block-embed {
+	margin: 0 auto;
+	text-align: center;
+
+	&.alignleft {
+		text-align: left;
+	}
+
+	&.alignright {
+		text-align: right;
+	}
+
+	.content-wrapper > & {
+		@include responsive-grid(12, 12, 12, 12, 12, 12);
+
+		margin: $block-spacing auto;
+	}
+
+	.wp-element-caption {
+		@include subtitle-2(false);
+	}
+}

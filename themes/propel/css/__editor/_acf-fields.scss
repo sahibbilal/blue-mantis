@@ -1,0 +1,33 @@
+.acf-field {
+	&[data-name="post_types"],
+	&[data-name="terms"],
+	&[data-name="display_location"] {
+		.acf-checkbox-list {
+			max-height: rem(300);
+			overflow: auto;
+		}
+	}
+
+	&[data-name="terms"],
+	&[data-name="display_location"] {
+		.acf-checkbox-list {
+			ul {
+				padding: 0;
+				list-style: none;
+			}
+
+			input {
+				&[value$="_label"] {
+					display: none;
+
+					~ span {
+						display: block;
+						margin-top: rem(8);
+						font-weight: 700;
+						cursor: auto;
+					}
+				}
+			}
+		}
+	}
+}

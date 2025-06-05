@@ -1,0 +1,20 @@
+@import "../../../css/base-includes";
+
+.block-our-speakers {
+	&__title-centered {
+		h2 {
+			text-align: center;
+		}
+	}
+
+	&__wrapper {
+		padding: rem(20);
+		border-top: rem(3) solid paint(blue-1);
+		background-color: paint(neutral-98);
+
+		@include media-breakpoint-up(md) {
+			width: 60%;
+			padding: rem(40);
+		}
+	}
+}

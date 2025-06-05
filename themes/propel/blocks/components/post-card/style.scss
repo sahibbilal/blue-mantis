@@ -1,0 +1,75 @@
+@import "../../../css/base-includes";
+
+.post-card {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	color: paint(text);
+	background-color: paint(white);
+	box-shadow: 0 rem(5 20) rgba(0, 0, 0, 0.1);
+	transition: box-shadow $transition-standard;
+
+	&:hover,
+	&:focus {
+		color: paint(text);
+		box-shadow: 0 0 30px rgba(21, 120, 248, 0.2);
+
+		.post-card__title {
+			color: paint(blue-1);
+		}
+	}
+
+	&__image-wrapper {
+		padding-bottom: 55.76923%;
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+		padding: rem(24 24 32 24);
+	}
+
+	&__meta {
+		margin-bottom: rem(8);
+		font-size: 0;
+		line-height: 0;
+
+		span {
+			&:not(:last-child) {
+				&::after {
+					content: "•";
+					display: inline-block;
+					width: rem(4);
+					margin: auto rem(8);
+					color: transparent;
+					background-color: paint(neutral-85);
+					clip-path: circle(#{rem(2)} at 50% 50%);
+				}
+			}
+		}
+	}
+
+	&__category {
+		@include link-3(false);
+
+		color: paint(neutral-44);
+	}
+
+	&__read-time {
+		@include subtitle-3(false);
+	}
+
+	&__title {
+		@include title-1(true);
+
+		margin-top: 0;
+		transition: color $transition-standard;
+	}
+
+	&__author {
+		@include subtitle-3(false);
+
+		margin-top: auto;
+	}
+}

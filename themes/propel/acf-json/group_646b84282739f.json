@@ -1,0 +1,49 @@
+{
+    "key": "group_646b84282739f",
+    "title": "Author",
+    "fields": [
+        {
+            "key": "field_646b8428590e5",
+            "label": "People Post",
+            "name": "people_post",
+            "aria-label": "",
+            "type": "post_object",
+            "instructions": "Select a people post to automatically associate that post with any articles written by this user in the Cards-Author block.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "people"
+            ],
+            "post_status": "",
+            "taxonomy": "",
+            "return_format": "id",
+            "multiple": 0,
+            "allow_null": 1,
+            "ui": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "user_form",
+                "operator": "==",
+                "value": "all"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1684767939
+}

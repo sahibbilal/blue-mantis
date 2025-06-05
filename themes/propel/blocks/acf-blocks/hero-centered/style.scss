@@ -1,0 +1,28 @@
+@import "../../../css/base-includes";
+
+.block-hero-centered {
+	padding: responsive-values(128, 168) 0 $block-spacing;
+	text-align: center;
+
+	&:not(.block-hero-centered--has-image) {
+		@each $color, $value in $background-colors {
+			&.bg-#{$color} {
+				+ .acf-block.bg-#{$color} {
+					margin-top: responsive-values(-24, -120);
+				}
+			}
+		}
+	}
+
+	&__image {
+		@include responsive-grid();
+
+		margin: responsive-values(48, 96) auto 0 auto;
+	}
+
+	.wp-block-image {
+		@include responsive-grid(12, 12, 12, 10, 10, 10);
+
+		margin: responsive-values(48, 96) auto 0 auto;
+	}
+}

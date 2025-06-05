@@ -1,0 +1,42 @@
+@import "../../../css/base-includes";
+
+.wp-block-image {
+	margin: 0 auto;
+	text-align: center;
+
+	&.alignleft {
+		text-align: left;
+	}
+
+	&.alignright {
+		text-align: right;
+	}
+
+	.content-wrapper > & {
+		@include responsive-grid(12, 12, 12, 12, 12, 12);
+
+		margin: $block-spacing auto;
+		padding: 0;
+
+		// offset margin-bottom of image block
+		// and smaller spacing above content
+		+ p {
+			margin-top: calc(-1 * $block-spacing);
+			padding-top: responsive-values(48, 72);
+		}
+	}
+
+	.acf-block.bg-white + &,
+	.acf-block.bg-transparent + & {
+		margin-top: 0;
+	}
+
+	+ .acf-block.bg-white,
+	+ .acf-block.bg-transparent {
+		margin-top: responsive-values(-96, -144);
+	}
+
+	.wp-element-caption {
+		@include subtitle-2(false);
+	}
+}

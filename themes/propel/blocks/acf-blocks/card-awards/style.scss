@@ -1,0 +1,63 @@
+@import "../../../css/base-includes";
+
+.block-card-awards {
+	overflow-x: hidden;
+
+	&__container {
+		@include media-breakpoint-up(md) {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.wp-block-heading {
+			margin-bottom: 0;
+		}
+
+		.wp-block-button {
+			margin-top: rem(24);
+
+			@include media-breakpoint-up(md) {
+				margin: 0;
+			}
+		}
+	}
+
+	.block-awards {
+		display: flex;
+		flex: 0 0 100%;
+		flex-wrap: wrap;
+		max-width: 100%;
+		margin-top: rem(48);
+
+		&.slick-initialized {
+			display: block;
+		}
+	}
+
+	.slick-list {
+		overflow: visible;
+	}
+
+	.slick-track {
+		display: flex;
+	}
+
+	.slick-slide {
+		height: auto;
+		padding: 0 rem(16);
+		opacity: 0.5;
+		transition: opacity 2s linear;
+
+		&.slick-active,
+		&.slick-clone-current {
+			opacity: 1;
+		}
+
+		> div,
+		.block-card-award {
+			height: 100%;
+		}
+	}
+}

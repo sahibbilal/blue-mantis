@@ -1,0 +1,152 @@
+@import "../../../css/base-includes";
+
+.news-card {
+	$self: &;
+
+	position: relative;
+	z-index: 1;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	color: paint(text);
+	background-color: paint(white);
+	box-shadow: 0 rem(5 20) rgba(0, 0, 0, 0.1);
+	transition: box-shadow $transition-standard;
+
+	@include media-breakpoint-up(sm) {
+		flex-direction: row;
+	}
+
+	&::before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		content: "";
+		z-index: 1;
+		width: 100%;
+		height: rem(2);
+		background-color: paint(neutral-8);
+	}
+
+	&:hover,
+	&:focus {
+		color: paint(text);
+		box-shadow: 0 rem(5 20) rgba(0, 0, 0, 0.2);
+
+		#{$self}__title {
+			color: paint(blue-1);
+		}
+	}
+
+	&__content {
+		display: grid;
+		flex-grow: 1;
+		grid-template-columns: rem(100) 1fr;
+		align-items: flex-start;
+		padding: rem(24);
+
+		&::after {
+			grid-area: 4 / 2 / 5 / 3;
+			content: "";
+			display: block;
+			width: 100%;
+			height: 1px;
+			margin-top: rem(8);
+			margin-bottom: rem(16);
+			background-color: paint(neutral-85);
+		}
+
+		.block-archive-news-grid & {
+			grid-template-columns: responsive-values(60, 100) 1fr;
+			padding: rem(24) responsive-values(24, 32) rem(32);
+		}
+	}
+
+	&__image-wrapper {
+		padding-bottom: 54.92537313%;
+
+		@include media-breakpoint-up(sm) {
+			flex: 0 0 22.05882353%;
+			width: 22.05882353%;
+			height: 100%;
+			margin-left: auto;
+			padding-bottom: 0;
+		}
+	}
+
+	&__image {
+		height: auto;
+	}
+
+	&__date {
+		grid-area: 1 / 1 / 6 / 2;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		height: calc(100% + #{rem(48)});
+		min-height: calc(100% + #{rem(48)});
+		margin: rem(-24 24 -24 -24);
+		padding: rem(24);
+		color: paint(white);
+		background-color: paint(neutral-8);
+
+		.block-primary-nav & {
+			@include title-1(false);
+		}
+
+		.block-archive-news-grid & {
+			height: rem(100);
+			min-height: 0;
+			margin: rem(-24) responsive-values(24, 32) 0 responsive-values(-24, -32);
+		}
+	}
+
+	&__month {
+		@include overline(false);
+
+		margin-bottom: rem(4);
+	}
+
+	&__day {
+		@include t3(false);
+	}
+
+	&__category {
+		@include link-3(false);
+
+		grid-area: 1 / 2 / 2 / 3;
+		color: paint(neutral-44);
+	}
+
+	&__title {
+		@include t3(false);
+
+		grid-area: 2 / 2 / 3 / 3;
+		margin-top: rem(4);
+		margin-bottom: rem(16);
+		transition: color $transition-standard;
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+		.block-primary-nav &,
+		.block-related-posts & {
+			@include title-1(false);
+		}
+	}
+
+	&__excerpt {
+		@include body-2(false);
+
+		grid-area: 3 / 2 / 4 / 3;
+		margin-bottom: rem(24);
+	}
+
+	.wp-block-button {
+		--buttonIcon: var(--icon-triangle-right);
+
+		grid-area: 5 / 2 / 6 / 3;
+		margin-top: auto;
+	}
+}

@@ -1,0 +1,119 @@
+{
+    "key": "group_6452965b429bb",
+    "title": "Block: Hero-Archive-Events",
+    "fields": [
+        {
+            "key": "field_6452965b4591b",
+            "label": "Featured Event",
+            "name": "featured_event",
+            "aria-label": "",
+            "type": "post_object",
+            "instructions": "Optional. Defaults to latest post if blank.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "event"
+            ],
+            "post_status": "",
+            "taxonomy": "",
+            "return_format": "object",
+            "multiple": 0,
+            "allow_null": 1,
+            "ui": 1
+        },
+        {
+            "key": "field_64529b015fa01",
+            "label": "Display Upcoming Events",
+            "name": "display_upcoming_events",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
+            "key": "field_64529d6df2404",
+            "label": "Upcoming Events",
+            "name": "upcoming_events",
+            "aria-label": "",
+            "type": "post_object",
+            "instructions": "Optional. If blank, displays the next 6 upcoming events.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64529b015fa01",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "event"
+            ],
+            "post_status": "",
+            "taxonomy": "",
+            "return_format": "object",
+            "multiple": 1,
+            "allow_null": 1,
+            "ui": 1
+        },
+        {
+            "key": "field_64ca877bf089a",
+            "label": "Custom CTA Button",
+            "name": "custom_cta_button",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "This will replace the default CTA button",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/hero-archive-events"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content"
+    ],
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1690995254
+}

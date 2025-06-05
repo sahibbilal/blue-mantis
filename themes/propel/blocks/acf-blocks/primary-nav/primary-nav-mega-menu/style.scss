@@ -1,0 +1,179 @@
+@import "../../../../css/base-includes";
+
+.block-primary-nav-mega-menu {
+	display: contents;
+
+	@include media-breakpoint-up(lg) {
+		position: fixed;
+		top: rem(64);
+		left: 0;
+		bottom: 0;
+		z-index: 9999999;
+		display: block;
+		width: calc(var(--vw, 1vw) * 100);
+		overflow: hidden;
+		pointer-events: none;
+	}
+
+	body.admin-bar & {
+		@include media-breakpoint-up(lg) {
+			top: calc(32px + #{rem(64)});
+		}
+	}
+
+	&__inner {
+		position: absolute;
+		transition: transform 0.4s ease-in-out;
+
+		@include media-breakpoint-down(md) {
+			top: rem(-64);
+			left: 0;
+			z-index: 9999999;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: flex-start;
+			align-items: flex-start;
+			width: 100%;
+			padding: rem(20);
+			background-color: paint(white);
+			transform: translateX(200%);
+			transition: transform 0.4s 0.4s ease-in-out;
+		}
+
+		@include media-breakpoint-up(lg) {
+			@include responsive-grid(12, 12, 12, 12, 12, 12);
+
+			position: absolute;
+			top: 0;
+			left: 50%;
+			z-index: 996;
+			opacity: 0;
+			transform: translate(-50%, calc(-100% - #{rem(65)}));
+			pointer-events: auto;
+			transition: transform 0.4s ease-in-out, opacity 0s 0.4s ease-in-out;
+		}
+
+		&.hidden {
+			visibility: hidden;
+
+			@include media-breakpoint-down(md) {
+				transition: none;
+			}
+		}
+
+		body:not(.primary-menu-open) & {
+			@include media-breakpoint-down(md) {
+				transform: translate(200%, calc(var(--vh, 1vh) * 100));
+				transition: transform 0.4s ease-in-out;
+			}
+		}
+
+		body.primary-submenu-visible & {
+			@include media-breakpoint-up(lg) {
+				transition: transform 0s 0.4s ease-in-out, opacity 0.4s ease-in-out;
+			}
+		}
+	}
+
+	.wp-block-button.active + & {
+		.block-primary-nav-mega-menu__inner {
+			@include media-breakpoint-down(md) {
+				visibility: visible;
+				transform: translateX(100%);
+			}
+
+			@include media-breakpoint-up(lg) {
+				z-index: 997;
+				visibility: visible;
+				opacity: 1;
+				transform: translate(-50%, 0);
+				transition: transform 0.4s ease-in-out, opacity 0s ease-in-out;
+			}
+
+			body.primary-submenu-visible & {
+				@include media-breakpoint-up(lg) {
+					transition: transform 0.4s ease-in-out, opacity 0.4s 0.4s ease-in-out;
+				}
+			}
+		}
+	}
+
+	&__heading {
+		@include nav-1(false);
+
+		position: sticky;
+		z-index: 3;
+		order: -1;
+		margin-right: auto;
+		margin-left: auto;
+		padding: rem(2 24 2 0);
+		color: paint(neutral-16);
+		pointer-events: none;
+
+		@include media-breakpoint-up(lg) {
+			display: none;
+		}
+	}
+
+	&__back-button {
+		position: sticky;
+		z-index: 2;
+		order: -2;
+		max-width: max-content;
+		margin-left: 0;
+		padding: rem(2 0) !important;
+
+		@include media-breakpoint-up(lg) {
+			display: none;
+		}
+
+		&::before {
+			position: absolute;
+			top: rem(-20);
+			left: rem(-20);
+			content: "";
+			z-index: -1;
+			display: block !important;
+			width: calc(var(--vw, 1vw) * 100);
+			height: rem(64);
+			background-color: paint(white) !important;
+		}
+	}
+
+	&__content {
+		max-height: calc(var(--vh, 1vh) * 100);
+		overflow-x: hidden;
+		overflow-y: auto;
+
+		@include media-breakpoint-down(md) {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: flex-start;
+			width: 100%;
+			// min-height: calc(var(--vh, 1vh) * 100 - #{rem(64)});
+
+			padding-top: rem(20);
+		}
+
+		@include media-breakpoint-up(md) {
+			max-height: calc(var(--vh, 1vh) * 100 - #{rem(64)});
+			overflow: auto;
+		}
+
+		@include media-breakpoint-up(lg) {
+			display: grid;
+			grid-template-rows: 1fr auto;
+			grid-template-columns: var(--gridTemplateColumns);
+			max-width: max-content;
+			margin: 0 auto;
+			padding: 0;
+			column-gap: 0;
+			background-color: paint(white);
+			transform: translateX(var(--menuOffset, 0));
+			clip-path: polygon(0% 0%, 100% 0%, 100% calc(var(--openMenuBottom, 100%) - #{rem(64)}), 0% calc(var(--openMenuBottom, 100%) - #{rem(64)}));
+			transition: clip-path 0.4s ease-in-out;
+		}
+	}
+}

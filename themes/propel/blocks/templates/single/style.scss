@@ -1,0 +1,129 @@
+@import "../../../css/base-includes";
+
+body.single-post,
+body.single-resource {
+	.default-content {
+		position: relative;
+		z-index: 1;
+		color: paint(white) !important;
+		background-color: paint(text, true);
+
+		@include headings {
+			color: paint(white) !important;
+			background-color: transparent !important;
+		}
+
+		&::before {
+			position: absolute;
+			top: 0;
+			left: 50%;
+			content: "";
+			z-index: -1;
+			width: calc(var(--vw, 1vw) * 100);
+			height: 100%;
+			background-color: paint(text, true);
+			transform: translateX(-50%);
+		}
+
+		+ .acf-block {
+			position: relative;
+			z-index: 2;
+		}
+
+		p,
+		span {
+			color: paint(white) !important;
+			background-color: transparent !important;
+		}
+
+		table {
+			color: paint(text, true) !important;
+
+			p,
+			span,
+			li {
+				color: paint(text, true) !important;
+			}
+		}
+
+		table,
+		tr,
+		td,
+		th {
+			border-color: paint(neutral-85) !important;
+		}
+
+		td,
+		th {
+			padding: rem(16) !important;
+		}
+	}
+}
+
+.news-post-wrapper {
+	.default-content {
+		width: 100% !important;
+		max-width: 100% !important;
+		padding: 0 !important;
+	}
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+
+		@include media-breakpoint-up(lg) {
+			@include grid;
+		}
+	}
+
+	&__content {
+		@include media-breakpoint-up(lg) {
+			grid-area: 1 / 1 / 2 / span 7;
+		}
+
+		@include media-breakpoint-up(xl) {
+			grid-column: 1 / span 8;
+		}
+	}
+
+	&__footer {
+		@include media-breakpoint-down(md) {
+			order: 99;
+		}
+
+		@include media-breakpoint-up(lg) {
+			grid-column: 1 / span 7;
+		}
+
+		@include media-breakpoint-up(xl) {
+			grid-column: 1 / span 8;
+		}
+
+		> .acf-block {
+			&.bg-white,
+			&.bg-transparent {
+				&:last-child {
+					padding-bottom: 0;
+				}
+			}
+		}
+	}
+
+	&__sidebar {
+		@include media-breakpoint-down(md) {
+			margin-top: rem(48);
+		}
+
+		@include media-breakpoint-up(lg) {
+			grid-area: 1 / 9 / 2 / span 4;
+		}
+
+		@include media-breakpoint-up(xl) {
+			grid-column: 10 / span 3;
+		}
+
+		p {
+			@include body-2;
+		}
+	}
+}

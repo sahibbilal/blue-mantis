@@ -1,0 +1,12 @@
+// Non-CSS stuff: mixins and variables
+@import "base-includes";
+
+@import "lib/iconfont/iconfont";
+
+// Reset and unify styles
+@import "__styles/init/init";
+
+// Layout
+@import "__styles/elements/init";
+@import "__styles/block-formats/init";
+@import "__styles/header/init";

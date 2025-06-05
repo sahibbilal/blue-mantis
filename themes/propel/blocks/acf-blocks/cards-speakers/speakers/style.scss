@@ -1,0 +1,89 @@
+@import "../../../../css/base-includes";
+
+.block-speakers {
+	display: grid;
+	grid-template-columns: auto auto auto 1fr;
+	align-items: center;
+	margin-top: rem(48);
+
+	&.slick-dotted {
+		margin-top: rem(24);
+
+		.slick-list {
+			margin-top: rem(48);
+		}
+	}
+
+	&__single {
+		max-width: calc(calc(#{$grid-gap} / 2) + rem(304) * 1);
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	&__double {
+		max-width: calc(calc(#{$grid-gap} / 2) * 2 + rem(304) * 2);
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	&__triple {
+		max-width: calc(calc(#{$grid-gap} / 2) * 3 + rem(304) * 3);
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.slick-track {
+		display: flex;
+		flex-direction: row;
+		align-items: stretch;
+	}
+
+	.slick-list {
+		grid-column: 1 / span 4;
+		margin: 0 calc(#{$grid-gap} * -0.5);
+	}
+
+	.slick-arrow {
+		grid-row: 1 / span 1;
+		position: relative !important;
+		top: auto !important;
+		left: auto !important;
+		right: auto !important;
+		transform: none !important;
+	}
+
+	.slick-prev {
+		order: 1;
+	}
+
+	.slick-next {
+		order: 3;
+	}
+
+	.slick-dots {
+		grid-row: 1 / span 1;
+		order: 2;
+		margin: auto rem(8);
+	}
+
+	.slick-slide {
+		display: flex !important;
+		justify-content: flex-start;
+		align-items: flex-start;
+		float: none;
+		height: auto;
+		margin: 0 calc(#{$grid-gap} / 2);
+		opacity: 0.5;
+		transition: opacity 0.4s ease-in-out;
+		max-width: rem(304);
+
+		> div:not([class]) {
+			display: contents;
+		}
+
+		&.slick-active,
+		&.slick-clone-current {
+			opacity: 1;
+		}
+	}
+}

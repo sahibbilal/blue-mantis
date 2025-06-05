@@ -1,0 +1,45 @@
+{
+    "key": "group_6487985fba84c",
+    "title": "Blog Post",
+    "fields": [
+        {
+            "key": "field_64879860dcd3f",
+            "label": "Old Author",
+            "name": "old_author",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Author name assigned on old website. Leave blank to use WordPress author who created the post.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1686608021
+}

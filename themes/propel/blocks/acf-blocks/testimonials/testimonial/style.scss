@@ -1,0 +1,51 @@
+@import "../../../../css/base-includes";
+
+.block-testimonial {
+	position: relative;
+
+	&__quote-icon {
+		margin-bottom: rem(32);
+
+		&::before {
+			content: "";
+			display: block;
+			width: rem(50);
+			height: rem(72);
+			margin: 0 auto;
+			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 33 48'%3E%3Cg fill='%23076DF2' clip-path='url(%23a)'%3E%3Cpath d='M12.552 0c1.587 0 2.703 5.958 2.03 12.452-.407 3.966-.97 7.73-1.578 11.225-1.088 6.272-2.435 11.557-3.901 16.27-1.651 5.314-3.81 8.062-5.598 8.062-1.79 0-2.278-4.114-2.177-4.114 5.082 0 8.3-22.063 8.3-27.606 0-2.389-.248-3.662-.839-3.662-.59 0-5.644-.055-8.162-.055H.055c-.046 0-.064-.581-.064-.581L3.034.046M30.768 0c1.586 0 2.702 5.958 2.029 12.452-.406 3.966-.968 7.73-1.577 11.225-1.088 6.272-2.435 11.557-3.901 16.27-1.651 5.314-3.81 8.062-5.599 8.062-1.789 0-2.278-4.114-2.176-4.114 5.081 0 8.3-22.063 8.3-27.606 0-2.389-.249-3.662-.84-3.662-.59 0-5.644-.055-8.161-.055h-.572c-.046 0-.065-.581-.065-.581L21.25.046'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='a'%3E%3Cpath fill='%23fff' d='M0 0h33v48H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+		}
+	}
+
+	&__logo {
+		height: auto;
+		margin: rem(16) auto 0;
+	}
+
+	&__content {
+		@include quote-1(false);
+
+		margin: 0 0 responsive-values(32, 48) 0;
+		padding: 0;
+		font-style: italic;
+		border: 0;
+
+		p {
+			@include quote-1();
+		}
+	}
+
+	&__slide-footer-name {
+		@include title-2(false);
+	}
+
+	&__slide-footer-label {
+		@include subtitle-1(false);
+
+		display: block;
+		font-style: normal;
+	}
+
+	&__button {
+		margin-top: responsive-values(48, 72);
+	}
+}

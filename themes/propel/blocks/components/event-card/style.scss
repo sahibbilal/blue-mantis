@@ -1,0 +1,138 @@
+@import "../../../css/base-includes";
+
+.event-card {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	background-color: paint(neutral-92);
+
+	@include media-breakpoint-up(sm) {
+		flex-direction: row;
+	}
+
+	&::after {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		content: "";
+		z-index: -1;
+		width: 100%;
+		height: rem(74);
+		background: linear-gradient(180deg, rgba(230, 233, 238, 0) 0%, #d6d9e0 100%);
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		padding: rem(24);
+	}
+
+	&__image-wrapper {
+		padding-bottom: 54.92537313%;
+
+		@include media-breakpoint-up(sm) {
+			flex: 0 0 25.625%;
+			width: 25.625%;
+			height: 100%;
+			margin-left: auto;
+			padding-bottom: 0;
+		}
+	}
+
+	&__image {
+		height: auto;
+	}
+
+	&__meta {
+		@include subtitle-3(false);
+
+		margin-bottom: rem(4);
+		font-size: 0;
+		line-height: 0;
+
+		span {
+			@include link-3(false);
+
+			color: paint(neutral-24);
+
+			&:not(:last-child) {
+				&::after {
+					content: "•";
+					display: inline-block;
+					width: rem(4);
+					margin: auto rem(8);
+					color: transparent;
+					background-color: paint(neutral-24);
+					clip-path: circle(#{rem(2)} at 50% 50%);
+				}
+			}
+		}
+	}
+
+	&__date {
+		@include subtitle-2(false);
+
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		margin-top: rem(8);
+		color: paint(text, true);
+
+		.icon {
+			margin-right: rem(5);
+			color: paint(blue-1);
+			font-size: rem(16);
+		}
+	}
+
+	&__title {
+		@include t4(false);
+
+		margin-top: 0;
+		margin-bottom: 0;
+		color: paint(text, true);
+		transition: color $transition-standard;
+
+		.event-card:hover &,
+		.event-card:focus & {
+			color: paint(blue-1);
+		}
+	}
+
+	.wp-block-button {
+		--buttonIcon: var(--icon-triangle-right);
+
+		margin-top: auto;
+
+		&::before {
+			content: "";
+			display: block;
+			width: 100%;
+			height: 1px;
+			margin-top: rem(24);
+			margin-bottom: rem(18);
+			background-color: paint(neutral-85);
+		}
+	}
+
+	.wp-block-button__link {
+		color: paint(neutral-8) !important;
+
+		&::after {
+			color: paint(neutral-0) !important;
+		}
+
+		a:hover &,
+		a:focus &,
+		&:hover,
+		&:focus {
+			color: paint(neutral-0) !important;
+
+			&::before {
+				background-color: paint(button-hover) !important;
+			}
+		}
+	}
+}

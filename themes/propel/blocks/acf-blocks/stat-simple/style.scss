@@ -1,0 +1,24 @@
+@import "../../../css/base-includes";
+
+.block-stat-simple {
+	.block-stat {
+		@include media-breakpoint-up(sm) {
+			flex: 0 1 auto;
+			max-width: 25%;
+		}
+
+		&:not(:last-child) {
+			&::after {
+				@include media-breakpoint-up(sm) {
+					position: absolute;
+					top: 0;
+					right: -1px;
+					content: "";
+					width: 1px;
+					height: 100%;
+					background-color: currentcolor;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,26 @@
+@import "../../../../css/base-includes";
+
+.block-icon-card {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	min-height: responsive-values(68, 76);
+	padding: rem(10 20);
+	color: paint(text, true);
+	border-radius: rem(8);
+	background: paint(neutral-98);
+
+	@include headings() {
+		@include t3(false);
+
+		line-height: 1;
+	}
+
+	.block-icon {
+		margin: auto rem(16) auto 0 !important;
+	}
+
+	*:not(.block-icon) {
+		margin: auto auto auto 0 !important;
+	}
+}

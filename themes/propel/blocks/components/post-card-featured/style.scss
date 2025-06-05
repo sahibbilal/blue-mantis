@@ -1,0 +1,68 @@
+@import "../../../css/base-includes";
+
+.post-card-featured {
+	.block-editor-block-list__block & {
+		pointer-events: none;
+	}
+
+	&__image {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -2;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	&__meta {
+		margin-bottom: rem(8);
+		font-size: 0;
+		line-height: 0;
+
+		span {
+			@include link-3(false);
+
+			&:not(:last-child) {
+				&::after {
+					content: "•";
+					display: inline-block;
+					width: rem(4);
+					margin: auto rem(8);
+					color: transparent;
+					background-color: paint(neutral-85);
+					clip-path: circle(#{rem(2)} at 50% 50%);
+				}
+			}
+		}
+	}
+
+	&__primary-term {
+		@include t6(false);
+	}
+
+	&__title {
+		@include t2;
+
+		margin-top: 0;
+	}
+
+	&__link {
+		color: paint(text);
+
+		&:hover,
+		&:focus {
+			color: paint(button-hover);
+		}
+	}
+
+	&__author {
+		@include subtitle-2(false);
+	}
+
+	.wp-block-button {
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}

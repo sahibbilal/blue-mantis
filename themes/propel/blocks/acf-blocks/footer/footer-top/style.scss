@@ -1,0 +1,45 @@
+@import "../../../../css/base-includes";
+
+.block-footer-top {
+	@include subtitle-2(false);
+
+	padding-bottom: rem(24);
+
+	&:not(:last-child) {
+		@include media-breakpoint-up(sm) {
+			border-bottom: 1px solid paint(neutral-24);
+		}
+	}
+
+	p {
+		@include subtitle-2(false);
+
+		&:not(:last-child) {
+			margin-bottom: rem(16);
+		}
+	}
+
+	&__content {
+		@include grid();
+	}
+
+	.wp-block-html {
+		padding: 0;
+	}
+
+	.hs-form-field {
+		margin-bottom: rem(8) !important;
+
+		label {
+			@include sr-only;
+		}
+	}
+
+	.hs-submit {
+		margin-top: rem(8);
+	}
+
+	.hs-button {
+		width: 100%;
+	}
+}

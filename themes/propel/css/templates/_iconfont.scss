@@ -1,0 +1,45 @@
+@import "iconfont-variables";
+
+@font-face {
+	font-weight: 400;
+	font-family: <%= fontName %>;
+	font-style: normal;
+	src: url(../<%= fontPath %>/<%= fontName %>.eot?<%= fontCacheBuster %>);
+	src:
+		url(../<%= fontPath %>/<%= fontName %>.eot?<%= fontCacheBuster %>#iefix) format("eot"),
+		url(../<%= fontPath %>/<%= fontName %>.woff2?<%= fontCacheBuster %>) format("woff2"),
+		url(../<%= fontPath %>/<%= fontName %>.woff?<%= fontCacheBuster %>) format("woff"),
+		url(../<%= fontPath %>/<%= fontName %>.ttf?<%= fontCacheBuster %>) format("truetype"),
+		url(../<%= fontPath %>/<%= fontName %>.svg?<%= fontCacheBuster %>#<%= fontName %>) format("svg");
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	font-size: $iconfont-size;
+	line-height: 0;
+
+	&::before {
+		font-weight: 400;
+		font-size: inherit;
+		font-family: $font-iconfont;
+		font-style: normal;
+		font-variant: normal;
+		line-height: 1;
+		text-transform: none;
+		-moz-osx-font-smoothing: grayscale; /* stylelint-disable-line order/properties-alphabetical-order */
+		-webkit-font-smoothing: antialiased; /* stylelint-disable-line order/properties-alphabetical-order */
+	}
+}
+
+:root {
+<% _.each(glyphs, function(glyph) { %>	--icon-<%= glyph.name %>: "\<%= glyph.unicode[0].charCodeAt(0).toString(16).toUpperCase() %>";
+<% }); %>
+}
+<% _.each(glyphs, function(glyph) { %>
+.<%= className %>-<%= glyph.name %>::before {
+	content: "\<%= glyph.unicode[0].charCodeAt(0).toString(16).toUpperCase() %>";
+}
+<% }); %>

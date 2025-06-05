@@ -1,0 +1,86 @@
+
+@use "sass:math";
+
+@mixin input-style {
+	@include subtitle-1(false);
+
+	display: block;
+	width: 100%;
+	padding: rem(11 12);
+	color: paint(text, true);
+	border: 1px solid paint(neutral-85);
+	background-color: paint(white);
+	outline: none;
+	transition: color $transition-standard, background-color $transition-standard;
+
+	&:focus {
+		padding: rem(12 13 10 13);
+		border: 1px solid paint(text);
+		border-color: paint(white) paint(white) paint(button-default) paint(white);
+		border-width: 0 0 2px 0;
+	}
+
+	&.error {
+		border-color: paint(error);
+	}
+
+	&::-webkit-input-placeholder {
+		color: paint(neutral-44);
+	}
+
+	&::-moz-placeholder {
+		color: paint(neutral-44);
+	}
+
+	&::-ms-placeholder {
+		color: paint(neutral-44);
+	}
+
+	&::placeholder {
+		color: paint(neutral-44);
+	}
+}
+
+body:not(.wp-admin),
+.block-editor-block-list__block:not(.is-selected):not(.has-child-selected):not(.is-reusable) {
+	input:not([type="radio"]):not([type="checkbox"]):not([type="file"]):not(.hs-button),
+	textarea,
+	select,
+	.chosen-single {
+		@include input-style;
+	}
+
+	input[type="search"]::-ms-clear {
+		display: none;
+		width: 0;
+		height: 0;
+	}
+
+	input[type="search"]::-ms-reveal {
+		display: none;
+		width: 0;
+		height: 0;
+	}
+
+	input[type="search"]::-webkit-search-decoration,
+	input[type="search"]::-webkit-search-cancel-button,
+	input[type="search"]::-webkit-search-results-button,
+	input[type="search"]::-webkit-search-results-decoration {
+		display: none;
+	}
+
+	textarea {
+		min-height: rem(144);
+	}
+}
+
+select {
+	-webkit-appearance: none;
+
+	&:not([multiple]) {
+		padding-right: rem(42) !important;
+		background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10L12 15L17 10H7Z' fill='%2302040C'/%3E%3C/svg%3E"); // stylelint-disable-line function-url-quotes
+		background-repeat: no-repeat;
+		background-position: center right rem(10);
+	}
+}

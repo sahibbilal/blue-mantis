@@ -1,0 +1,108 @@
+/**
+ * WordPress specific base styles.
+ */
+
+.gm-style img {
+	max-width: none;
+}
+
+.media img,
+.media video,
+.media object,
+.media iframe {
+	width: 100%;
+	height: auto;
+}
+
+/* Make WordPress media inserted to post behave correctly */
+// .alignleft
+// {
+//     float: left;
+
+//     margin: 0 $media-margin $media-margin 0;
+
+//     @include media-breakpoint-down(sm) {
+//     {
+//         margin: 0 $media-margin-mobile $media-margin-mobile 0;
+//     }
+// }
+
+// .alignright
+// {
+//     float: right;
+
+//     margin: 0 0 $media-margin $media-margin;
+
+//     @include media-breakpoint-down(sm) {
+//     {
+//         margin: 0 0 $media-margin-mobile $media-margin-mobile;
+//     }
+// }
+
+// .alignnone
+// {
+//     display: inline-block;
+
+//     margin: $media-margin 0;
+
+//     @include media-breakpoint-down(sm) {
+//     {
+//         margin: rem( 24 ) 0 $media-margin-mobile;
+//     }
+// }
+
+// .aligncenter
+// {
+//     display: block;
+//     clear: both;
+
+//     margin: $media-margin auto;
+
+//     text-align: center;
+
+//     @include media-breakpoint-down(sm) {
+//     {
+//         margin:$media-margin-mobile auto;
+//     }
+// }
+.navigation.pagination {
+	clear: both;
+}
+
+/* WP navigation menus are lists, but they don't need default list styling */
+nav {
+	a {
+		color: paint(text);
+		text-decoration: none;
+
+		&:hover {
+			color: paint(text);
+			text-decoration: none;
+		}
+	}
+
+	li {
+		display: inline-block;
+		margin: 0;
+	}
+
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+
+		ul li::before {
+			content: none;
+		}
+	}
+}
+
+.wp-caption {
+	max-width: 100%;
+}
+
+.wp-caption-text {
+	padding: rem(5) 0;
+	font-size: rem(15);
+	line-height: rem(22);
+}

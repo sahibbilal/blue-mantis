@@ -1,0 +1,188 @@
+@import "../../../css/base-includes";
+
+.block-tab-standard {
+	&.bg-dark {
+		background: linear-gradient(180deg, #000 0%, paint(blue-3) 90%);
+
+		.block-content-section {
+			color: paint(neutral-0);
+			background: paint(white);
+		}
+
+		.block-tab-standard-tab > .wp-block-button .wp-block-button__link {
+			color: paint(neutral-0);
+			background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0.9) 100%);
+
+			@include media-breakpoint-up(md) {
+				background: paint(white);
+			}
+
+			&:hover,
+			&:active {
+				color: paint(blue-1);
+			}
+		}
+
+		.wp-block-button.is-style-tertiary .wp-block-button__link,
+		.wp-block-button.is-style-tertiary .wp-block-button__link::after {
+			color: paint(neutral-0);
+		}
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+
+		@include headings() {
+			flex-basis: 100%;
+			margin-bottom: responsive-values(48, 72);
+		}
+
+		.has-overline-font-size {
+			flex-basis: 100%;
+		}
+
+		> * {
+			padding-right: calc(100% - rem(864));
+		}
+	}
+
+	.block-tab__mobile-select {
+		display: none;
+	}
+
+	.block-tab-standard-tab {
+		display: contents;
+
+		&:first-of-type {
+			> .wp-block-button {
+				&:not(.initialized) {
+					&::after {
+						transform: translateX(-50%) scaleX(1);
+					}
+
+					+ .block-content-section {
+						display: block;
+					}
+				}
+			}
+		}
+
+		> .wp-block-button {
+			position: relative;
+			order: 2;
+			margin: 0;
+
+			@include media-breakpoint-down(sm) {
+				width: 100%;
+			}
+
+			&::after {
+				position: absolute;
+				top: 100%;
+				left: 50%;
+				content: "";
+				width: 0;
+				height: 0;
+				border: rem(12) solid transparent;
+				border-top-color: paint(button-default);
+				border-bottom-width: 0;
+				transform: translateX(-50%) scaleX(0);
+				pointer-events: none;
+				transition: transform $transition-standard;
+
+				@include media-breakpoint-up(md) {
+					border-width: rem(18);
+					border-bottom-width: 0;
+				}
+			}
+
+			&.active {
+				filter: drop-shadow(0 5px 30px rgba(0, 0, 0, 0.2));
+
+				@include media-breakpoint-down(sm) {
+					z-index: 1;
+				}
+
+				@include media-breakpoint-up(md) {
+					filter: none;
+				}
+
+				&::after {
+					transform: translateX(-50%) scaleX(1);
+				}
+
+				.wp-block-button__link {
+					background: paint(button-default);
+					cursor: default;
+					filter: drop-shadow(0 5px 30px rgba(0, 0, 0, 0.2));
+
+					&:hover,
+					&:active {
+						color: paint(neutral-0);
+					}
+				}
+
+				+ .block-content-section {
+					display: block;
+				}
+			}
+
+			.wp-block-button__link {
+				@include link-1(false);
+
+				margin: 0;
+				padding: rem(12 32);
+				color: paint(text);
+				border: none;
+				border-radius: 0;
+				background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0.9) 100%);
+				-webkit-appearance: none;
+				appearance: none;
+				transition: $transition-standard;
+				transition-property: filter background-color;
+
+				@include media-breakpoint-down(sm) {
+					width: 100%;
+				}
+			}
+		}
+
+		> .block-content-section {
+			order: 10;
+			display: none;
+			flex: 0 0 100%;
+			max-width: 100%;
+			padding-top: responsive-values(48, 88);
+			padding-right: responsive-values(24, 80);
+			padding-bottom: rem(88);
+			padding-left: responsive-values(24, 80);
+
+			// &__content {
+			// margin: 0 calc(var(--gutterWidth, #{rem(20)}) * -1);
+			// }
+		}
+	}
+
+	.block-icon-side-grid {
+		width: auto !important; // Need !important due to ridiculous :not selector specificity
+		max-width: none !important; // Need !important due to ridiculous :not selector specificity
+		margin: 0;
+		padding: 0;
+
+		&__container {
+			padding-right: 0;
+			padding-left: 0;
+		}
+	}
+
+	.block-icon-content {
+		height: rem(176);
+	}
+
+	// Home page specific styles
+	.home .block-content-side-image + & {
+		padding-top: rem(90);
+	}
+}

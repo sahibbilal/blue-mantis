@@ -1,0 +1,14 @@
+@import "../../../css/base-includes";
+
+.editor-styles-wrapper .block-icon-pillar {
+	.wp-block-button__link {
+		position: static;
+		color: paint(text);
+		font-size: rem(12) !important;
+
+		&::before {
+			content: "Link to: ";
+			display: inline-block;
+		}
+	}
+}

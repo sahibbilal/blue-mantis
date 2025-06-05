@@ -1,0 +1,77 @@
+@import "../../../css/base-includes";
+
+.wp-block-quote {
+	@include quote-2(false);
+
+	position: relative;
+	margin: responsive-values(32, 48) auto;
+	padding-top: rem(72) !important;
+	padding-bottom: 0 !important;
+	padding-left: rem(26) !important;
+	border-left: 4px solid paint(neutral-85);
+
+	&::before {
+		position: absolute;
+		top: 0;
+		content: "";
+		display: block;
+		width: rem(33);
+		height: rem(48);
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 33 48'%3E%3Cg fill='%23076DF2' clip-path='url(%23a)'%3E%3Cpath d='M12.552 0c1.587 0 2.703 5.958 2.03 12.452-.407 3.966-.97 7.73-1.578 11.225-1.088 6.272-2.435 11.557-3.901 16.27-1.651 5.314-3.81 8.062-5.598 8.062-1.79 0-2.278-4.114-2.177-4.114 5.082 0 8.3-22.063 8.3-27.606 0-2.389-.248-3.662-.839-3.662-.59 0-5.644-.055-8.162-.055H.055c-.046 0-.064-.581-.064-.581L3.034.046M30.768 0c1.586 0 2.702 5.958 2.029 12.452-.406 3.966-.968 7.73-1.577 11.225-1.088 6.272-2.435 11.557-3.901 16.27-1.651 5.314-3.81 8.062-5.599 8.062-1.789 0-2.278-4.114-2.176-4.114 5.081 0 8.3-22.063 8.3-27.606 0-2.389-.249-3.662-.84-3.662-.59 0-5.644-.055-8.161-.055h-.572c-.046 0-.065-.581-.065-.581L21.25.046'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='a'%3E%3Cpath fill='%23fff' d='M0 0h33v48H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+		background-size: cover;
+	}
+
+	&:first-child {
+		margin-top: $block-spacing;
+	}
+
+	&:last-child {
+		margin-bottom: $block-spacing;
+	}
+
+	cite {
+		@include subtitle-1(false);
+
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-items: center;
+		color: paint(neutral-32);
+		font-weight: 400 !important;
+		font-style: normal;
+
+		em {
+			position: relative;
+			margin-left: rem(16);
+			padding-left: rem(16);
+			font-style: normal;
+
+			&::before {
+				position: absolute;
+				top: 50%;
+				left: 0;
+				content: "";
+				display: block;
+				width: 1px;
+				height: 1em;
+				background: paint(neutral-32);
+				transform: translateY(-50%);
+			}
+		}
+	}
+
+	&__citation-divider {
+		width: 1px;
+		height: rem(16);
+		margin-right: rem(8);
+		margin-left: rem(8);
+		color: transparent;
+		background-color: paint(text);
+	}
+
+	p {
+		@include quote-2(false);
+
+		margin-bottom: responsive-values(16, 24);
+	}
+}

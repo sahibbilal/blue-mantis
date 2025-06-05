@@ -1,0 +1,11 @@
+@import "../../../css/base-includes";
+
+.block-footer {
+	padding-top: responsive-values(72, 96);
+	padding-bottom: responsive-values(48, 48);
+	background-color: paint(text, true);
+
+	@include media-breakpoint-up(sm) {
+		padding-top: rem(72);
+	}
+}

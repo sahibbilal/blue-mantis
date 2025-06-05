@@ -1,0 +1,171 @@
+/* stylelint-disable scss/at-extend-no-missing-placeholder */
+.checkbox-label,
+.radio-label {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-bottom: rem(16);
+	padding-left: rem(28);
+	cursor: pointer;
+
+	@include media-breakpoint-up(sm) {
+		margin-bottom: rem(24);
+	}
+
+	&::before {
+		@include icon-font( $icon-check-box-unchecked, #{rem(20)});
+
+		position: absolute;
+		top: calc(50% - #{rem(15)});
+		left: rem(-5);
+		z-index: 3;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: rem(30);
+		height: rem(30);
+		padding: 0;
+		background-color: transparent;
+		transition: color $transition-standard;
+	}
+}
+
+.checkbox-label {
+	input:checked + & {
+		&::before {
+			content: $icon-check-box-checked;
+		}
+	}
+}
+
+.radio-label {
+	&::before {
+		content: $icon-radio-button-unchecked;
+	}
+
+	input:checked + & {
+		&::before {
+			content: $icon-radio-button-checked;
+		}
+	}
+}
+
+.mktoCheckboxList,
+.mktoRadioList {
+	> label {
+		display: block;
+		margin-bottom: rem(16);
+	}
+}
+
+.gform_wrapper .gfield_checkbox,
+.gform_wrapper .gfield_radio,
+.mktoCheckboxList {
+	margin: 0 !important;
+	padding: 0;
+	list-style-type: none;
+
+	input[type="radio"],
+	input[type="checkbox"] {
+		position: absolute;
+		width: 0;
+		height: 0;
+		opacity: 0;
+
+		&:focus {
+			~ label {
+				&::before {
+					color: paint(button-default);
+
+					@include alt-text-selectors() {
+						color: paint(neutral-85);
+					}
+				}
+			}
+		}
+	}
+
+	li {
+		margin-bottom: 0 !important;
+	}
+
+	br {
+		display: none;
+	}
+}
+
+.gform_wrapper .gfield_checkbox,
+.gform_wrapper .gfield_radio,
+.checkbox-wrapper,
+.radio-wrapper {
+	label {
+		@include subtitle-2(false);
+
+		margin-bottom: rem(16);
+		cursor: pointer;
+
+		&:hover,
+		&:focus {
+			&::before {
+				color: paint(button-hover);
+
+				@include alt-text-selectors() {
+					color: paint(neutral-85);
+				}
+			}
+		}
+	}
+}
+
+.gform_wrapper .gfield_checkbox,
+.checkbox-wrapper,
+.mktoCheckboxList {
+	label {
+		@extend .checkbox-label;
+	}
+}
+
+.gform_wrapper .gfield_radio,
+.radio-wrapper,
+.mktoRadioList {
+	label {
+		@extend .radio-label;
+	}
+}
+
+.radio-buttons {
+	label {
+		display: inline-block !important;
+		margin: rem(0 8 12 0) !important;
+		padding: rem(7 15) !important;
+		border: 1px solid paint(neutral-85);
+		border-radius: rem(1600);
+		transition: color $transition-standard, background-color $transition-standard, border $transition-standard;
+
+		&::before {
+			display: none !important;
+		}
+
+		&:hover,
+		&:focus {
+			color: paint(white);
+			border-color: paint(button-hover);
+			background-color: paint(button-hover);
+		}
+	}
+
+	.gchoice {
+		display: inline-block;
+	}
+
+	.gfield_radio {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		margin-bottom: rem(-12) !important;
+	}
+}
+
+/* stylelint-enable scss/at-extend-no-missing-placeholder */

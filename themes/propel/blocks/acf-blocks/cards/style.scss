@@ -1,0 +1,90 @@
+@import "../../../css/base-includes";
+
+.block-cards {
+	&--2 {
+		max-width: rem(1088);
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	&--4 {
+		.block-cards__grid {
+			@include media-breakpoint-between(md, md) {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+			}
+		}
+	}
+
+	&.block-cards--load-more {
+		> .wp-block-button {
+			order: 2;
+			display: flex;
+			justify-content: center;
+			margin: responsive-values(48, 72) auto 0;
+
+			.wp-block-button__link--less {
+				display: none;
+			}
+		}
+	}
+
+	&.block-cards--showing {
+		> .wp-block-button {
+			.wp-block-button__link {
+				display: none;
+			}
+
+			.wp-block-button__link--less {
+				display: block;
+			}
+		}
+	}
+
+	> .wp-block-button {
+		display: none;
+	}
+
+	.content-wrapper > & {
+		@include responsive-grid(12, 12, 12, 12, 12, 12);
+
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	.acf-block.bg-white + &,
+	.acf-block.bg-transparent + & {
+		margin-top: 0;
+	}
+
+	+ .acf-block.bg-white,
+	+ .acf-block.bg-transparent {
+		margin-top: responsive-values(-48, -72);
+	}
+
+	&:not(:first-child) {
+		margin-top: responsive-values(48, 72);
+	}
+
+	&:not(:last-child) {
+		margin-bottom: responsive-values(48, 72);
+	}
+
+	&__grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		row-gap: responsive-values(20, 32);
+		column-gap: $grid-gap;
+
+		@include media-breakpoint-up(sm) {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		@include media-breakpoint-up(md) {
+			grid-template-columns: repeat(var(--cardsPerRow, 3), minmax(0, 1fr));
+		}
+
+		> .wp-block-heading {
+			grid-column: 1 / -1;
+		}
+	}
+}

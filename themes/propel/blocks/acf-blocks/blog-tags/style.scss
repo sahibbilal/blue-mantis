@@ -1,0 +1,92 @@
+@import "../../../css/base-includes";
+
+.block-blog-tags {
+	padding-top: responsive-values(48, 72) !important;
+
+	.acf-block + & {
+		padding-top: 0 !important;
+	}
+
+	&__container {
+		@include media-breakpoint-up(md) {
+			@include grid;
+		}
+
+		&::before {
+			content: "";
+			display: block;
+			width: 100%;
+			height: 1px;
+			margin-bottom: responsive-values(24, 32);
+			background-color: paint(neutral-85);
+
+			@include media-breakpoint-up(md) {
+				grid-column: 1 / span 12;
+			}
+
+			.bg-dark &,
+			.bg-black & {
+				background-color: paint(neutral-85);
+			}
+		}
+
+		.news-post-wrapper & {
+			padding-right: 0;
+			padding-bottom: 0;
+			padding-left: 0;
+		}
+	}
+
+	&__tag-col {
+		@include media-breakpoint-up(md) {
+			grid-column: 1 / span 6;
+		}
+	}
+
+	&__social-col {
+		@include media-breakpoint-up(md) {
+			grid-column: 7 / span 6;
+			justify-self: flex-end;
+			max-width: max-content;
+		}
+	}
+
+	&__tags-title {
+		@include overline(false);
+
+		margin-bottom: responsive-values(6, 20);
+	}
+
+	&__tags {
+		margin-bottom: rem(48);
+
+		@include media-breakpoint-up(md) {
+			margin-bottom: auto;
+		}
+	}
+
+	&__tag {
+		@include subtitle-1(false);
+
+		margin: rem(0 16 8 0);
+		color: paint(neutral-24);
+
+		&:hover,
+		&:focus {
+			color: paint(blue-1);
+		}
+	}
+
+	.share-icons {
+		@include media-breakpoint-up(md) {
+			justify-content: flex-end;
+		}
+	}
+
+	.wp-block-button {
+		&.is-style-social {
+			margin-top: responsive-values(-8, -24);
+			margin-bottom: responsive-values(8, 24);
+		}
+	}
+}

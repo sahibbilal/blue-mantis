@@ -1,0 +1,87 @@
+@import "../../../../css/base-includes";
+
+.block-primary-nav-featured-post {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	padding: rem(20);
+	background-color: paint(neutral-92);
+	overflow: hidden;
+
+	@include media-breakpoint-up(lg) {
+		grid-row: 1 / 3;
+		padding: responsive-values(32, 48, "lg", "xxl") responsive-values(48, 72, "lg", "xxl") responsive-values(56, 72, "lg", "xxl");
+	}
+
+	@include media-breakpoint-down(md) {
+		width: calc(100% + #{rem(40)});
+		margin: auto rem(-20 0);
+	}
+
+	&:last-child {
+		@include media-breakpoint-down(md) {
+			margin-bottom: rem(-20);
+		}
+	}
+
+	.block-primary-nav-mega-menu--wide & {
+		@include media-breakpoint-up(lg) {
+			padding-right: responsive-values(24, 72, "lg", "xxl");
+			padding-left: responsive-values(24, 72, "lg", "xxl");
+		}
+	}
+
+	& + & {
+		@include media-breakpoint-down(md) {
+			margin-top: 0;
+		}
+	}
+
+	&__content {
+		width: 100%;
+
+		> .wp-block-heading {
+			margin-bottom: rem(4);
+			padding-bottom: rem(16);
+			border-bottom: 1px solid paint(neutral-85);
+		}
+
+		~ a {
+			margin-top: rem(24);
+		}
+	}
+
+	&__image-wrapper {
+		margin-bottom: responsive-values(16, 24);
+		padding-bottom: 56.57894737%;
+		border-radius: rem(0 32 0 0);
+	}
+
+	p {
+		@include subtitle-2();
+
+		margin-top: 0;
+		color: paint(neutral-16);
+	}
+
+	.resource-card,
+	.news-card,
+	.event-card {
+		@include media-breakpoint-up(lg) {
+			width: rem(416);
+		}
+	}
+
+	.event-card {
+		&:hover,
+		&:focus {
+			.event-card__title {
+				color: paint(blue-1);
+			}
+		}
+
+		.event-card__title {
+			transition: color $transition-standard;
+		}
+	}
+}

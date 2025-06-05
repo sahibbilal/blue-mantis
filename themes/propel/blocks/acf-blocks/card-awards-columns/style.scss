@@ -1,0 +1,72 @@
+@import "../../../css/base-includes";
+
+.block-card-awards-columns {
+	$self: ".block-card-award";
+
+	display: flex;
+	flex-direction: column;
+
+	.block-cards {
+		display: flex;
+		flex-direction: column;
+
+		+ .block-cards {
+			margin-top: responsive-values(48, 128);
+			padding-top: responsive-values(64, 128);
+			border-top: 1px solid paint(text);
+		}
+	}
+
+	.block-cards__grid {
+		gap: responsive-values(32, 56) 32px;
+
+		@include media-breakpoint-up(md) {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		@include media-breakpoint-up(lg) {
+			// 4 cols - switching to flex to center last-row cells
+
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0;
+			justify-content: center;
+			margin: 0 rem(-32);
+		}
+
+		@include headings(1, 6, ">") {
+			grid-column: 1 / -1;
+			margin-bottom: responsive-values(24, 32);
+
+			@include media-breakpoint-up(lg) {
+				flex: 0 0 100%;
+			}
+		}
+	}
+	// If there is a Load More button and no heading
+	.block-cards--load-more {
+		// and a heading
+		@include headings() {
+			// Show 9th+ child
+			~ #{$self}:nth-child(n+9) {
+				display: block;
+			}
+
+			// And hide 10th+ child
+			~ #{$self}:nth-child(n+10) {
+				display: none;
+			}
+		}
+
+		// Else, hide the 9th+ child
+		#{$self}:nth-child(n+9) {
+			display: none;
+		}
+	}
+
+	.block-cards--showing {
+		#{$self}:nth-child(n+9) {
+			display: block;
+		}
+	}
+}

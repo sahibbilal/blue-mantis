@@ -1,0 +1,68 @@
+@import "../../../css/base-includes";
+
+.block-icon-image {
+	&.is-style-5-12-image-column {
+		.block-icon-image__image-col {
+			@include media-breakpoint-up(md) {
+				grid-column: 1 / 6;
+			}
+		}
+
+		.block-icon-image__image-wrapper {
+			padding-bottom: 133.333333333%;
+		}
+
+		.block-icon-image__content-col {
+			@include media-breakpoint-up(md) {
+				grid-column: 6 / 13;
+				max-width: rem(624);
+			}
+		}
+	}
+
+	&__container {
+		@include media-breakpoint-up(md) {
+			@include grid();
+
+			align-items: center;
+		}
+	}
+
+	&__image-col {
+		@include media-breakpoint-up(md) {
+			grid-column: 1 / 8;
+		}
+	}
+
+	&__image-wrapper {
+		padding-bottom: 75%;
+	}
+
+	&__content-col {
+		margin: 0 auto;
+		padding: 0;
+
+		@include media-breakpoint-up(md) {
+			grid-column: 8 / 13;
+			max-width: rem(400);
+		}
+
+		@include media-breakpoint-down(sm) {
+			margin-top: rem(48);
+		}
+	}
+
+	.block-icon-contents {
+		&:not(:first-child) {
+			margin-top: rem(48);
+		}
+
+		&:not(:last-child) {
+			margin-bottom: rem(48);
+		}
+	}
+
+	.block-icon-contents__grid {
+		column-gap: $grid-gap;
+	}
+}

@@ -1,0 +1,125 @@
+@import "../../../../css/base-includes";
+
+.block-footer-column {
+	grid-column-end: span var(--columnWidthMobile);
+	order: var(--orderMobile, initial);
+	margin: 0 0 rem(48) 0;
+
+	&--mobile-hidden {
+		@include media-breakpoint-down(xs) {
+			display: none;
+		}
+	}
+
+	&--tablet-hidden {
+		@include media-breakpoint-between(sm, md) {
+			display: none;
+		}
+	}
+
+	&--desktop-hidden {
+		@include media-breakpoint-up(lg) {
+			display: none;
+		}
+	}
+
+	&--mobile-border {
+		@include media-breakpoint-down(xs) {
+			margin: responsive-values(32, 48) 0 responsive-values(64, 96);
+			border-bottom: 1px solid paint(neutral-24);
+		}
+	}
+
+	&--tablet-border {
+		@include media-breakpoint-between(sm, md) {
+			margin: responsive-values(32, 48) 0 responsive-values(64, 96);
+			border-bottom: 1px solid paint(neutral-24);
+		}
+	}
+
+	&--desktop-border {
+		@include media-breakpoint-up(lg) {
+			margin: responsive-values(32, 48) 0 responsive-values(64, 96);
+			border-bottom: 1px solid paint(neutral-24);
+		}
+	}
+
+	@include media-breakpoint-up(sm) {
+		grid-column-end: span var(--columnWidthTablet);
+		order: var(--orderTablet, initial);
+	}
+
+	@include media-breakpoint-up(lg) {
+		grid-column-end: span var(--columnWidthDesktop);
+		order: initial;
+	}
+
+	.gform_title {
+		@include title-2(false);
+
+		margin-bottom: rem(24);
+	}
+
+	.gform_wrapper {
+		.gform_footer .c-btn {
+			width: 100%;
+			margin-top: 0;
+		}
+
+		.gfield {
+			margin-bottom: rem(12) !important;
+		}
+	}
+
+	&__logo-link {
+		display: inline-block;
+		margin-bottom: rem(24);
+
+		+ .block-footer-column__content {
+			> .wp-block-buttons {
+				&:first-child {
+					margin-top: rem(24);
+				}
+			}
+		}
+	}
+
+	.has-overline-font-size {
+		margin-bottom: rem(24);
+		color: paint(neutral-80);
+	}
+
+	.wp-block-button {
+		display: block;
+		margin-top: 0;
+		margin-bottom: 0;
+
+		+ p {
+			margin-top: rem(24);
+		}
+
+		&.is-style-text {
+			flex: 0 0 100%;
+			margin-bottom: rem(24);
+			text-align: left;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+			.wp-block-button__link {
+				@include nav-2(false);
+
+				text-decoration: none;
+			}
+		}
+	}
+
+	.wp-block-buttons {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		row-gap: 0;
+		margin: 0;
+	}
+}

@@ -1,0 +1,41 @@
+@import "../../../css/base-includes";
+
+.editor-styles-wrapper {
+	.block-tab-standard {
+		> .container {
+			// padding: 0;
+		}
+
+		.block-tab-standard-tab {
+			display: block;
+			width: 100%;
+			margin-top: rem(32);
+
+			> .block-content-section {
+				display: block;
+			}
+
+			.block-content-section__content {
+				margin: 0;
+			}
+
+			> .wp-block-button {
+				&::after {
+					display: none;
+				}
+			}
+		}
+
+		.block-tab-standard__content {
+			&::after {
+				display: none;
+			}
+		}
+
+		.content-wrapper {
+			> *:first-child {
+				margin-top: 0;
+			}
+		}
+	}
+}

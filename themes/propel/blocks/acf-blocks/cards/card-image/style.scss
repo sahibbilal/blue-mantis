@@ -1,0 +1,71 @@
+@import "../../../../css/base-includes";
+
+.block-card-image {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+		justify-content: center;
+		align-items: stretch;
+	}
+
+	&__image-wrapper {
+		padding-bottom: 56.25%;
+	}
+
+	.wp-block-button {
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+		justify-content: center;
+		align-items: stretch;
+		width: 100%;
+		min-height: rem(52);
+		margin-top: auto;
+		padding: rem(6 0);
+
+		&.is-style-tertiary {
+			.wp-block-button__link {
+				@include title-2(false);
+
+				color: paint(text);
+			}
+		}
+
+		.wp-block-button__link {
+			position: static;
+			display: flex;
+			justify-content: space-between;
+			width: 100%;
+			text-align: left;
+
+			&::before {
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0 !important;
+				right: 0;
+				content: "";
+				display: block !important;
+				width: 100%;
+				height: 100% !important;
+				border-bottom: 2px solid paint(button-default);
+				background-color: transparent !important;
+				transition: border $transition-standard;
+			}
+
+			&:hover,
+			&:focus {
+				color: var(--blockHoverColor, paint(button-hover));
+
+				&::before {
+					border-color: paint(button-hover);
+				}
+			}
+		}
+	}
+}

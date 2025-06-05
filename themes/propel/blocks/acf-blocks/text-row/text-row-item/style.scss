@@ -1,0 +1,46 @@
+@import "../../../../css/base-includes";
+
+.block-text-row-item {
+	&:first-child {
+		margin-top: $block-spacing-first-text-child-offset;
+	}
+
+	&:not(:last-child) {
+		margin-bottom: responsive-values(20, 40);
+	}
+
+	&__content {
+		padding-bottom: responsive-values(24, 48);
+		border-bottom: 1px solid paint(neutral-85);
+
+		@include media-breakpoint-up(md) {
+			@include grid();
+		}
+
+		.block-content {
+			&:first-child {
+				@include media-breakpoint-down(sm) {
+					margin-bottom: rem(8);
+				}
+
+				@include media-breakpoint-up(md) {
+					grid-column: 1 / 6;
+				}
+
+				@include media-breakpoint-up(xl) {
+					grid-column: 1 / 5;
+				}
+			}
+
+			&:last-child {
+				@include media-breakpoint-up(md) {
+					grid-column: 6 / 13;
+				}
+
+				p {
+					@include body-2();
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,36 @@
+@import "../../../css/base-includes";
+
+.block-stat-supporting {
+	display: block;
+
+	.wp-block-columns {
+		@include media-breakpoint-up(md) {
+			align-items: center !important;
+
+			.has-overline-font-size:first-child {
+				position: absolute;
+				transform: translateY(rem(-24));
+			}
+		}
+
+		&:not(.is-not-stacked-on-mobile) {
+			> .wp-block-column {
+				@include media-breakpoint-down(sm) {
+					margin-bottom: rem(48);
+
+					&:last-child {
+						margin-bottom: 0;
+					}
+				}
+			}
+		}
+	}
+
+	.wp-block-column:nth-child(2) {
+		margin-top: 0;
+	}
+
+	.wp-block-button.is-style-tertiary {
+		margin-top: responsive-values(-8, 26);
+	}
+}

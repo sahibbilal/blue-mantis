@@ -1,0 +1,10 @@
+@import "../../../css/base-includes";
+
+.editor-styles-wrapper {
+	.components-resizable-box__container {
+		&:not([style*="user-select: none"]) {
+			width: auto !important;
+			height: auto !important;
+		}
+	}
+}

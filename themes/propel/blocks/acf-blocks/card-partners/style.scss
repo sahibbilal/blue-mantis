@@ -1,0 +1,211 @@
+@import "../../../css/base-includes";
+
+$self: ".block-card-partner";
+
+.block-card-partners {
+	display: flex;
+	flex-direction: column;
+
+	.block-cards {
+		display: flex;
+		flex-direction: column;
+
+		+ .block-cards {
+			margin-top: responsive-values(48, 128);
+			padding-top: responsive-values(64, 128);
+			border-top: 1px solid paint(text);
+		}
+	}
+
+	.block-cards__grid {
+		gap: responsive-values(32, 56) 32px;
+
+		@include media-breakpoint-up(lg) {
+			// 4 cols - switching to flex to center last-row cells
+
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0;
+			justify-content: center;
+			margin: 0 rem(-32);
+		}
+
+		@include headings(1, 6, ">") {
+			grid-column: 1 / -1;
+			margin-bottom: responsive-values(24, 32);
+
+			@include media-breakpoint-up(lg) {
+				flex: 0 0 100%;
+			}
+		}
+	}
+}
+
+.block-card-partner {
+	$self: &;
+
+	@include media-breakpoint-up(lg) {
+		flex: 0 0 calc(25% - 24px);
+		flex: 0 0 25%;
+		padding: 0 16px;
+	}
+
+	// If there is a heading,
+	@include headings(1, 6, "", "~") {
+		// reset that margin-top
+		&:nth-child(n+5) {
+			content: "xxx";
+			margin-top: 0;
+		}
+
+		// And give it to the 6th+ child
+		&:nth-child(n+6) {
+			@include media-breakpoint-up(lg) {
+				margin-top: rem(56);
+			}
+		}
+	}
+
+	// If no heading, give 5th child+ margin-top
+	&:nth-child(n+5) {
+		@include media-breakpoint-up(lg) {
+			margin-top: rem(56);
+		}
+	}
+
+	&:hover {
+		.block-card-partner__image-wrapper {
+			img {
+				transform: translate(-50%, -50%) scale(1.1);
+			}
+		}
+
+		.block-card-partner__link {
+			.block-card-partner__content {
+				&.partner-has-link {
+					p {
+						&::after {
+							transform: translateX(rem(6));
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&.titanium-partner {
+		@include media-breakpoint-up(lg) {
+			flex: 0 0 calc(40% - 24px);
+		}
+	}
+
+	&__image-wrapper {
+		height: auto;
+		padding-bottom: 56.25%;
+		background: paint(white);
+
+		img {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			max-width: calc(100% - rem(60));
+			max-height: calc(100% - rem(56));
+			transform: translate(-50%, -50%);
+			object-fit: scale-down;
+		}
+	}
+
+	&__content {
+		margin-top: rem(16);
+
+		p {
+			&:first-child {
+				@include link-2(false);
+
+				position: relative;
+				display: inline-flex;
+				flex-direction: row;
+				justify-content: center;
+				align-items: center;
+				margin-bottom: 0;
+				padding: rem(8) 0;
+				color: paint(neutral-8);
+				text-align: center;
+				border: none;
+				border-radius: 0;
+				background-color: transparent;
+				-webkit-appearance: none;
+				appearance: none;
+				transition: color 0.2s linear, background-color 0.2s linear, border 0.2s linear;
+			}
+		}
+	}
+
+	.block-card-partner__link {
+		.partner-has-link {
+			p {
+				&::before {
+					position: absolute;
+					left: 0;
+					bottom: 0;
+					content: "";
+					width: 100%;
+					height: rem(2);
+					background-color: paint(button-default);
+				}
+
+				&::after {
+					@include icon-font( $icon-triangle-right );
+
+					color: paint(neutral-8);
+					font-size: rem(24);
+					transition: transform $transition-standard;
+				}
+
+				p {
+					padding: 0;
+				}
+			}
+		}
+	}
+
+	.has-subtitle-2-font-size {
+		margin-top: rem(8);
+	}
+
+	.is-style-tertiary.wp-block-button {
+		margin-top: rem(18);
+
+		.wp-block-button__link {
+			@include link-2(false);
+		}
+	}
+}
+
+// If there is a Load More button and no heading
+.block-cards--load-more {
+
+	// and a heading
+	@include headings() {
+		// Show 9th+ child
+		~ #{$self}:nth-child(n+9) {
+			display: block;
+		}
+
+		// And hide 10th+ child
+		~ #{$self}:nth-child(n+10) {
+			display: none;
+		}
+	}
+
+	// Else, hide the 9th+ child
+	#{$self}:nth-child(n+9) {
+		display: none;
+	}
+}
+
+.block-cards--showing {
+	#{$self}:nth-child(n+9) {
+		display: block !important;
+	}
+}

@@ -1,0 +1,28 @@
+@import "../../../../css/base-includes";
+
+.block-icon-content {
+	display: flex;
+	flex-direction: column;
+	transition: background-color $transition-standard;
+
+	@include headings() {
+		@include title-2();
+	}
+
+	&:hover {
+		z-index: 1;
+		background: paint(neutral-98);
+
+		@include headings() {
+			color: inherit;
+		}
+	}
+
+	p {
+		@include subtitle-1();
+
+		&:nth-last-child(2) {
+			margin-bottom: auto;
+		}
+	}
+}

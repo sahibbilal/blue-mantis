@@ -1,0 +1,439 @@
+@import "../../../css/base-includes";
+
+.gform_wrapper {
+	display: block !important;
+
+	label,
+	.gfield_label_before_complex {
+		@include subtitle-2(false);
+
+		display: block;
+		margin-bottom: rem(4);
+	}
+
+	.content-wrapper > & {
+		padding: $block-spacing 0;
+	}
+
+	.acf-block.bg-transparent + & {
+		padding-top: 0;
+	}
+
+	+ .acf-block.bg-transparent {
+		padding-top: 0;
+	}
+
+	.gform_body {
+		li {
+			@include rm-before;
+		}
+
+		.gform_fields {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: flex-start;
+			margin-right: rem(-8);
+			margin-left: rem(-8);
+			padding: 0;
+
+			.gfield {
+				margin: 0 0 responsive-values(16, 24) 0;
+
+				label {
+					display: block;
+				}
+			}
+		}
+
+		.gform_fileupload_rules {
+			@include subtitle-3(false);
+
+			display: block;
+			margin-top: rem(4);
+		}
+
+		// Complex fields (eg. Adress)
+		.ginput_complex {
+			@include media-breakpoint-up(sm) {
+				display: flex;
+				flex-wrap: wrap;
+				margin-right: rem(-8);
+				margin-bottom: rem(-40);
+				margin-left: rem(-8);
+			}
+
+			> span,
+			> p:not(:empty) {
+				@include media-breakpoint-up(sm) {
+					flex: 50%;
+					margin-bottom: rem(40);
+					padding: 0 rem(8);
+				}
+
+				&.ginput_full {
+					@include media-breakpoint-up(sm) {
+						flex: 100%;
+					}
+				}
+			}
+
+			> .ginput_container_date {
+				padding: 0 rem(8);
+			}
+
+			label {
+				@include subtitle-3(false);
+
+				display: block;
+				margin-top: rem(4);
+			}
+
+			// Hide BRs so we can control the spacing properly.
+			br {
+				display: none;
+			}
+
+			input {
+				display: block;
+				width: 100%;
+
+				@include media-breakpoint-down(xs) {
+					margin-bottom: rem(24);
+				}
+			}
+		}
+	}
+
+	.gform_footer {
+		.c-btn {
+			margin-top: responsive-values(24, 36);
+			white-space: nowrap;
+
+			@include media-breakpoint-down(xs) {
+				width: 100%;
+			}
+		}
+	}
+}
+
+.hidden_sub_label {
+	position: absolute !important;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+}
+
+.gfield {
+	flex: 100%;
+	padding: 0 rem(8);
+	list-style-type: none;
+
+	&--width-half,
+	&--width-third,
+	&--width-quarter {
+		margin: 0 auto;
+	}
+
+	&--width-half {
+		@include media-breakpoint-up(sm) {
+			flex: 0 0 50%;
+			max-width: 50%;
+		}
+	}
+
+	&--width-third {
+		@include media-breakpoint-up(md) {
+			flex: 0 0 33.3333333%;
+			max-width: 33.3333333%;
+		}
+	}
+
+	&--width-quarter {
+		@include media-breakpoint-up(sm) {
+			flex: 0 0 50%;
+			max-width: 50%;
+		}
+
+		@include media-breakpoint-up(md) {
+			flex: 0 0 25%;
+			max-width: 25%;
+		}
+	}
+
+	textarea {
+		width: 100% !important;
+
+		&.medium {
+			height: rem(160);
+		}
+
+		&.small {
+			height: rem(96);
+		}
+	}
+
+	label {
+		.gfield_required {
+			margin-left: 0.05em;
+
+			&::before {
+				content: "*";
+				color: paint(error);
+			}
+		}
+
+		.gfield_required_text,
+		.gfield_required_asterisk {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			padding: 0;
+			white-space: nowrap;
+			border: 0;
+			overflow: hidden;
+			clip: rect(0, 0, 0, 0);
+		}
+	}
+
+	.mat-select {
+		width: 100%;
+	}
+
+	&.gfield_error {
+		input {
+			border-color: paint(error) !important;
+		}
+
+		.validation_message {
+			@include subtitle-3(false);
+
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			margin-top: rem(4);
+			color: paint(error);
+		}
+	}
+
+	&.gsection {
+		&:first-child {
+			.gsection_title {
+				margin-top: 0 !important;
+			}
+		}
+
+		.gsection_title {
+			@include t5(false);
+
+			margin-top: responsive-values(32, 48) !important;
+		}
+	}
+}
+
+.gfield_description {
+	@include subtitle-3(false);
+
+	margin-bottom: rem(8);
+}
+
+.gfield_type_fileupload {
+	@include subtitle-1(false);
+
+	.c-btn {
+		margin-top: rem(8);
+		margin-left: rem(16);
+	}
+
+	input {
+		@include subtitle-3(false);
+
+		width: 100%;
+		margin: rem(4 0);
+		padding: rem(0);
+	}
+
+	::-webkit-file-upload-button,
+	::file-selector-button {
+		width: 0;
+		height: 0;
+		margin: 0;
+		padding: 0;
+		color: transparent;
+		font-size: 0;
+		border: 0;
+		background-color: transparent;
+		-webkit-appearance: none;
+		appearance: none;
+	}
+}
+
+.gform_title {
+	margin-bottom: responsive-values(32, 48);
+}
+
+.gfield_type_radio,
+.gfield_type_checkbox {
+	.validation_message {
+		margin-top: rem(-16) !important;
+		margin-bottom: rem(24) !important;
+	}
+
+	legend,
+	.gfield_label_before_complex {
+		@include subtitle-2(true);
+	}
+}
+
+.hidden_label .gfield_label,
+.hidden_sub_label {
+	position: absolute !important;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+}
+
+.gform_submission_error {
+	@include subtitle-3(false);
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-bottom: 0 !important;
+	color: paint(error);
+}
+
+.gform_validation_errors {
+	margin-bottom: rem(16);
+}
+
+.gform_confirmation_wrapper {
+	text-align: center;
+
+	.content-wrapper > & {
+		padding-top: responsive-values(32, 80);
+
+		&:last-child,
+		&:nth-last-child(2) {
+			margin-bottom: responsive-values(56, 160);
+		}
+	}
+}
+
+body img.gform_ajax_spinner {
+	display: none !important;
+}
+
+// Enhanced UI dropdown
+.chosen-container-single {
+	position: relative;
+	width: auto !important; // need to cascade over inline style
+}
+
+.chosen-single {
+	&::after {
+		@include icon-font($icon-triangle-down, rem(20));
+
+		position: absolute;
+		top: 50%;
+		right: rem(12);
+		transform: translateY(-50%);
+		transition: transform $transition-standard;
+	}
+
+	body:not(.wp-admin) & {
+		transition-property: color, background-color, border-color;
+	}
+
+	body:not(.wp-admin) .chosen-container-active & {
+		padding: rem(12 13 10 13);
+		border-color: paint(white) paint(white) paint(button-default) paint(white);
+		border-width: 0 0 2px 0;
+
+		&::after {
+			transform: translateY(-50%) scale(-1);
+		}
+	}
+}
+
+.chosen-drop {
+	.chosen-search {
+		display: none;
+	}
+
+	.chosen-results {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 100%;
+		margin-top: rem(8);
+		margin-bottom: 0;
+		padding-left: 0;
+		border-radius: rem(2);
+		background: paint(white);
+		list-style: none;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+		visibility: hidden;
+	}
+
+	.chosen-container-active & .chosen-results {
+		z-index: 1;
+		visibility: visible;
+		opacity: 1;
+	}
+
+	.active-result {
+		@include subtitle-1(false);
+
+		padding: 11px 12px;
+
+		&.highlighted {
+			background-color: paint(neutral-98);
+		}
+	}
+}
+
+// Consent checkbox
+.gfield--type-consent {
+	.gform_wrapper .gform_body .gform_fields & {
+		margin-top: responsive-values(8, 0);
+		margin-bottom: 0;
+	}
+
+	.gform-field-label,
+	input {
+		display: none;
+	}
+
+	.gfield_consent_label {
+		@include title-3(false);
+
+		position: relative;
+		padding-left: rem(28);
+
+		&::before {
+			@include icon-font($icon-check-box-unchecked, rem(20));
+
+			position: absolute;
+			top: 50%;
+			left: 0;
+			transform: translateY(-50%);
+		}
+
+		a {
+			@include title-3-underline(false);
+
+			&:hover,
+			&:focus {
+				@include title-3(false);
+			}
+		}
+	}
+
+	input:checked + .gfield_consent_label {
+		&::before {
+			@include icon-font($icon-check-box-checked, rem(20));
+		}
+	}
+}

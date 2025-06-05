@@ -1,0 +1,41 @@
+@import "../../../css/base-includes";
+
+.block-archive-event-grid {
+	background-color: paint(text, true);
+
+	&__content {
+		> *:last-child {
+			margin-bottom: responsive-values(24, 48);
+		}
+	}
+
+	.acf-block.bg-dark + & {
+		padding-top: 0;
+
+		.eight29-filter-list {
+			color: paint(neutral-0);
+		}
+	}
+
+	.eight29-sidebar__results {
+		color: paint(white);
+	}
+
+	.eight29-posts {
+		grid-template-columns: repeat(1, minmax(0, 1fr));
+
+		@include media-breakpoint-up(md) {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	.eight29-filter-group {
+		margin-bottom: responsive-values(24, 48);
+		padding: responsive-values(20, 32);
+		background: paint(blue-2);
+	}
+
+	.eight29-filter-list {
+		margin-bottom: auto;
+	}
+}

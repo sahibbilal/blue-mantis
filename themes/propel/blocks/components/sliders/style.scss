@@ -1,0 +1,184 @@
+@import "../../../css/base-includes";
+@import "slick-carousel/slick/slick";
+
+/* Slider Global */
+.slick-arrow {
+	position: absolute;
+	top: 50%;
+	z-index: 2;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: responsive-values(32, 48);
+	height: responsive-values(32, 48);
+	padding: 0;
+	color: paint(text, true);
+	font-size: 0;
+	line-height: 0;
+	text-align: center;
+	border: none;
+	border: 2px solid paint(button-default);
+	background: paint(button-default);
+	box-shadow: none;
+	cursor: pointer;
+	transform: translate(0, -50%);
+	transition: color $transition-standard, background-color $transition-standard, border-color $transition-standard;
+
+	&--secondary {
+		color: paint(text, true);
+		border-color: paint(text, true);
+		background-color: transparent;
+
+		@include alt-button-selectors {
+			color: paint(white);
+			border-color: paint(white);
+
+			&.hover,
+			&:hover,
+			&:focus {
+				color: paint(text, true);
+			}
+		}
+	}
+
+	&::after {
+		content: "";
+		color: inherit;
+		line-height: responsive-values(32, 48);
+	}
+
+	&.hover,
+	&:hover,
+	&:focus {
+		border-color: paint(button-hover);
+		background-color: paint(button-hover);
+	}
+
+	&.slick-prev {
+		left: rem(30);
+
+		&::after {
+			@include icon-font( $icon-chev-left, #{responsive-values(24, 32)} );
+		}
+	}
+
+	&.slick-next {
+		right: rem(30);
+
+		&::after {
+			@include icon-font( $icon-chev-right, #{responsive-values(24, 32)} );
+		}
+	}
+}
+
+.slick-prev-arrow-wrapper,
+.slick-next-arrow-wrapper {
+	position: relative;
+	top: auto;
+	left: auto;
+	right: auto;
+	width: auto;
+	margin-top: responsive-values(32, 48);
+	margin-bottom: rem(-10);
+	border: none !important;
+	border-radius: 0;
+	background-color: transparent !important;
+	box-shadow: none;
+	transform: none;
+	pointer-events: none;
+
+	@include media-breakpoint-up(md) {
+		grid-area: 1 / 6 / 2 / 13;
+		width: 100%;
+		max-width: rem(624);
+		text-align: left;
+	}
+
+	.acf-block[class*="--has-heading-content"] & {
+		position: absolute;
+		top: rem(-96);
+		width: auto;
+		margin: 0;
+		padding: 0;
+
+		@include media-breakpoint-up(md) {
+			top: 0;
+		}
+	}
+
+	.slick-arrow {
+		position: relative;
+		top: auto;
+		left: auto;
+		right: auto;
+		transform: none;
+		pointer-events: auto;
+	}
+}
+
+.slick-prev-arrow-wrapper {
+	order: 2;
+	margin-right: rem(8);
+	margin-left: 0;
+
+	@include media-breakpoint-up(md) {
+		margin: auto auto rem(68) auto;
+	}
+
+	.acf-block[class*="--has-heading-content"] & {
+		left: 0;
+
+		@include media-breakpoint-up(md) {
+			left: auto;
+			right: responsive-values(76, 116);
+		}
+	}
+}
+
+.slick-next-arrow-wrapper {
+	order: 3;
+	margin-right: auto;
+	margin-left: rem(8);
+
+	@include media-breakpoint-up(md) {
+		margin: auto auto rem(68) auto;
+		padding-left: rem(56);
+	}
+
+	.acf-block[class*="--has-heading-content"] & {
+		left: rem(56);
+
+		@include media-breakpoint-up(md) {
+			left: auto;
+			right: responsive-values(20, 64);
+		}
+	}
+}
+
+.slick-dots {
+	margin: 0;
+	padding: 0;
+
+	li {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		&:not(.slick-dot--page-count) {
+			*[data-slick*="pageCount"] & {
+				display: none !important;
+			}
+		}
+	}
+
+	.slick-dot--page-count {
+		@include subtitle-1(false);
+
+		display: none;
+		color: paint(text);
+
+		&.slick-active {
+			display: block;
+		}
+	}
+}

@@ -1,0 +1,27 @@
+@import "../../../css/base-includes";
+
+.block-icon-heading {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-bottom: responsive-values(8, 24);
+
+	@include headings(1, 6, "+") {
+		margin-top: 0 !important;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	> * {
+		margin: auto auto auto 0 !important;
+	}
+
+	.block-icon {
+		margin-right: rem(15) !important;
+		padding-right: rem(15);
+		color: paint(blue-1);
+		border-right: 1px solid paint(neutral-44);
+	}
+}

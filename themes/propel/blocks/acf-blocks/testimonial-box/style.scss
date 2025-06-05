@@ -1,0 +1,68 @@
+@import "../../../css/base-includes";
+
+.block-testimonial-box {
+	position: relative;
+
+	.block-testimonials {
+		position: relative;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		padding: responsive-values(88, 128) responsive-values(20, 224, "sm") responsive-values(96, 144);
+	}
+
+	.block-testimonial {
+		margin: 0;
+		text-align: center;
+	}
+
+	.slick-list {
+		@include media-breakpoint-down(md) {
+			flex: 0 0 100%;
+		}
+
+		@include media-breakpoint-up(lg) {
+			width: 100%;
+			margin: 0 auto;
+		}
+	}
+
+	.slick-track {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
+
+	.slick-arrow {
+		@include media-breakpoint-down(md) {
+			position: relative;
+			top: auto;
+			left: auto;
+			right: auto;
+			margin-top: rem(48);
+			transform: none;
+		}
+	}
+
+	.slick-prev {
+		order: 2;
+		margin-right: rem(4);
+		margin-left: auto;
+
+		@include media-breakpoint-up(lg) {
+			left: responsive-values(24, 72, "lg", "xxl");
+			margin: 0;
+		}
+	}
+
+	.slick-next {
+		order: 3;
+		margin-right: auto;
+		margin-left: rem(4);
+
+		@include media-breakpoint-up(lg) {
+			right: responsive-values(24, 72, "lg", "xxl");
+			margin: 0;
+		}
+	}
+}

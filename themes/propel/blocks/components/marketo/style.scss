@@ -1,0 +1,112 @@
+@import "../../../css/base-includes";
+
+.marketo-form.mktoForm {
+	@include t3(false);
+
+	width: 100% !important;
+	color: paint(blue-1);
+	font-weight: 700;
+	text-align: center;
+
+	* {
+		max-width: 100%;
+		color: paint(text);
+
+		&[style*="width:"] {
+			width: 100% !important;
+		}
+	}
+
+	.mktoRequiredField label.mktoLabel,
+	label {
+		@include subtitle-2(false);
+
+		margin-bottom: rem(4);
+		color: paint(text);
+	}
+}
+
+.mktoAsterix {
+	display: inline;
+	margin-left: 0.25em;
+	color: paint(error);
+
+	@include alt-text-selectors() {
+		color: paint(white);
+	}
+}
+
+.mktoFieldWrap {
+	margin-bottom: rem(24);
+	line-height: rem(24);
+	text-align: left;
+
+	&--empty-label {
+		display: flex;
+		flex-direction: row;
+
+		.mktoCheckboxList,
+		.mktoRadioList {
+			display: contents;
+
+			label {
+				order: -99;
+			}
+		}
+	}
+}
+
+.mktoCheckboxList,
+.mktoRadioList {
+	margin-top: rem(16) !important;
+	margin-bottom: rem(32) !important;
+
+	& ~ & {
+		margin-top: 0 !important;
+	}
+}
+
+.mktoError {
+	@include subtitle-3(false);
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-top: rem(4);
+	margin-bottom: 0;
+	padding: 0;
+	color: paint(error);
+	list-style: none;
+}
+
+.mktoInvalid:not(:focus) {
+	border-color: paint(error) !important;
+}
+
+.mktoButton {
+	@include button-primary;
+}
+
+.mktoHtmlText {
+	@include subtitle-2(false);
+
+	p {
+		@include subtitle-2;
+	}
+}
+
+.mktoInstruction {
+	@include subtitle-3(false);
+}
+
+.mktoCheckboxList label::before {
+	top: 0;
+	align-items: flex-start;
+}
+
+.mktoForm .mktoFieldWrap [for^="Consent"].mktoLabel {
+	&,
+	strong {
+		font-weight: 400;
+	}
+}

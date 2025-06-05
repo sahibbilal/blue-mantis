@@ -1,0 +1,32 @@
+@import "../../../css/base-includes";
+
+.acf-block.block-video-gallery {
+	margin-top: responsive-values(-32, -48);
+}
+
+.video-gallery {
+	&__card {
+		margin-top: responsive-values(32, 48);
+	}
+
+	&__card-thumb {
+		position: relative;
+		margin-bottom: responsive-values(8, 16);
+		cursor: pointer;
+
+		.c-btn--play {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+		img {
+			width: 100%;
+		}
+	}
+
+	&__card-title {
+		@include t4( false );
+	}
+}
